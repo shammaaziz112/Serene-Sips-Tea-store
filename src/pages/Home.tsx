@@ -1,5 +1,4 @@
 import { useQuery } from "@tanstack/react-query"
-
 import { Button } from "../components/ui/button"
 import {
   Card,
@@ -13,11 +12,12 @@ import { Product } from "../types"
 import api from "../api"
 import { GlobalContext } from "@/App"
 import { useContext } from "react"
+import { Link } from "react-router-dom"
 
 export function Home() {
-  const context = useContext(GlobalContext);
+  const context = useContext(GlobalContext)
   if (!context) throw Error("Context is missing")
-    const {state, handleAddToCart} = context
+  const { state, handleAddToCart } = context
 
   const getProducts = async () => {
     try {
@@ -37,23 +37,43 @@ export function Home() {
 
   return (
     <div className="Home">
+      <section
+        className="w-full -mt-14 h-screen bg-cover bg-center relative"
+        style={{
+          backgroundImage: 'url("../src/images/header-image.jpg")'
+        }}
+      >
+        <div
+          style={{
+            width: "100%",
+            backgroundImage: 'url("../src/images/waves-white.png")',
+            height: "65px",
+            backgroundSize: "cover",
+            position: "absolute",
+            zIndex: "1",
+            bottom: "0"
+          }}
+        ></div>
+      </section>
       <h1 className="text-2xl uppercase mb-10">Products</h1>
-      <h3>Cart ({state.cart.length})</h3>
       <section className="flex flex-col md:flex-row gap-4 max-w-6xl mx-auto flex-wrap">
         {data?.map((product) => (
           <Card key={product.id} className="w-[250px]">
-            <CardHeader>
-            <img src={product.image} alt="img" />
-              <CardTitle>{product.name}</CardTitle>
-              <CardDescription><p>Content</p></CardDescription>
-            </CardHeader>
-            <CardContent>
-            
-              
-            </CardContent>
-            <CardFooter>
-              <Button className="w-full" onClick={() => handleAddToCart(product)}>Add to cart</Button>
-            </CardFooter>
+            <Link to={`/products/${product.id}`}>
+              <CardHeader>
+                <img src={product.image} alt={product.name} className="h-48" />
+                <CardTitle>{product.name}</CardTitle>
+                <CardDescription>{product.price}SAR</CardDescription>
+                <CardDescription>{product.quantity}</CardDescription>
+                <CardDescription>{product.id}</CardDescription>
+              </CardHeader>
+              <CardContent></CardContent>
+              <CardFooter>
+                <Button className="w-full" onClick={() => handleAddToCart(product)}>
+                  Add to cart
+                </Button>
+              </CardFooter>
+            </Link>
           </Card>
         ))}
       </section>
