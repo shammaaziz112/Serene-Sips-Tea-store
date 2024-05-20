@@ -26,7 +26,7 @@ export function ProductDetails() {
     queryKey: ["product"],
     queryFn: getProduct
   })
-  console.log("Product",product)
+  console.log("Product", product)
   if (isLoading) {
     return <p>Loading...</p>
   }
@@ -36,9 +36,10 @@ export function ProductDetails() {
   }
 
   return (
-    <div>
-        <h1 className="mt-10">details</h1>
+    <div className="flex flex-col justify-center">
+      <h1 className="mt-10">details</h1>
       <h3 className="mt-6">{product.name}</h3>
+      <img src={product.image} alt={product.name} className="h-48 w-48 self-center" />
       <h3 className="mt-6">{product.description}</h3>
     </div>
   )

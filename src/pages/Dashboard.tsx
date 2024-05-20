@@ -13,6 +13,7 @@ import {
   TableRow
 } from "@/components/ui/table"
 import { Product } from "@/types"
+import { EditDialog } from "@/components/editDialog"
 
 export function Dashboard() {
   const queryClient = useQueryClient()
@@ -30,10 +31,7 @@ export function Dashboard() {
     const { name, value } = e.target
     setProduct({
       ...product,
-      [name]: value,
-      // image:
-      //   "https://static9.depositphotos.com/1001033/1134/i/950/depositphotos_11349000-stock-photo-cup-of-coffe.jpg",
-      // description: "string"
+      [name]: value
     })
   }
 
@@ -50,6 +48,23 @@ export function Dashboard() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     await postProduct()
+    queryClient.invalidateQueries({ queryKey: ["products"] })
+  }
+
+  const deleteProducts = async (id: string) => {
+    try {
+      const res = await api.delete(`/products/${id}`)
+      return res.data
+    } catch (error) {
+      console.error(error)
+      return Promise.reject(new Error("Something went wrong"))
+    }
+  }
+
+  const handleDeleteProduct = async (id: string) => {
+    const hasConfirmed = confirm("Do you really want to delete?")
+    hasConfirmed && (await deleteProducts(id))
+
     queryClient.invalidateQueries({ queryKey: ["products"] })
   }
 
@@ -126,21 +141,30 @@ export function Dashboard() {
       </form>
       <div>
         <h1 className="scroll-m-20 text-4xl font-semibold tracking-tight mt-10">Products</h1>
-        <Table>
+        <Table className="">
           <TableCaption>A list of your Product.</TableCaption>
           <TableHeader>
             <TableRow>
-              <TableHead className="w-[100px]"></TableHead>
               <TableHead>Name</TableHead>
+              <TableHead>Price</TableHead>
+              <TableHead>Quantity</TableHead>
               <TableHead>CategoryId</TableHead>
+              <TableHead></TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             {products?.map((product) => (
               <TableRow key={product.id}>
-                <TableCell></TableCell>
                 <TableCell className="text-left">{product.name}</TableCell>
+                <TableCell className="text-left">{product.price}</TableCell>
+                <TableCell className="text-left">{product.quantity}</TableCell>
                 <TableCell className="text-left">{product.categoryId}</TableCell>
+                <TableCell className="text-left">
+                  <Button variant="destructive" onClick={() => handleDeleteProduct(product.id)}>
+                    X
+                  </Button>
+                  <EditDialog product={product} />
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>

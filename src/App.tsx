@@ -11,20 +11,35 @@ import { ProductDetails } from "./pages/productDetails"
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />
+    element: (
+      <>
+        <NavMenu />
+        <Home />
+      </>
+    )
   },
   {
     path: "/dashboard",
-    element: <Dashboard />
+    element: (
+      <>
+        <NavMenu />
+        <Dashboard />
+      </>
+    )
   },
   {
     path: "/products/:productId",
-    element: <ProductDetails />
+    element: (
+      <>
+        <NavMenu />
+        <ProductDetails />
+      </>
+    )
   }
 ])
 
 type GlobalContextType = {
-  state: GlobalContext
+  stateCart: GlobalContext
   handleAddToCart: (product: Product) => void
   handleDeleteFromCart: (id: string) => void
 }
@@ -35,7 +50,7 @@ type GlobalContext = {
 export const GlobalContext = createContext<GlobalContextType | null>(null)
 
 function App() {
-  const [state, setState] = useState<GlobalContext>({
+  const [stateCart, setStateCart] = useState<GlobalContext>({
     cart: []
   })
 
@@ -43,23 +58,22 @@ function App() {
     // *** for Duplicated in cart ***
     // const isDuplicated = state.cart.find((cartItem) => cartItem.id === product.id)
     // if (isDuplicated) return
-    setState({
-      ...state,
-      cart: [...state.cart, product]
+    setStateCart({
+      ...stateCart,
+      cart: [...stateCart.cart, product]
     })
   }
 
   const handleDeleteFromCart = (id: string) => {
-    const filteredCart= state.cart.filter((item) => item.id !== id)
-    setState({
-      ...state,
+    const filteredCart = stateCart.cart.filter((item) => item.id !== id)
+    setStateCart({
+      ...stateCart,
       cart: filteredCart
     })
   }
   return (
     <div className="App">
-      <GlobalContext.Provider value={{ state, handleAddToCart, handleDeleteFromCart }}>
-        <NavMenu />
+      <GlobalContext.Provider value={{ stateCart, handleAddToCart, handleDeleteFromCart }}>
         <RouterProvider router={router} />
       </GlobalContext.Provider>
     </div>

@@ -17,7 +17,7 @@ import { Link } from "react-router-dom"
 export function Home() {
   const context = useContext(GlobalContext)
   if (!context) throw Error("Context is missing")
-  const { state, handleAddToCart } = context
+  const { handleAddToCart } = context
 
   const getProducts = async () => {
     try {
@@ -28,7 +28,6 @@ export function Home() {
       return Promise.reject(new Error("Something went wrong"))
     }
   }
-
   // Queries
   const { data, error } = useQuery<Product[]>({
     queryKey: ["products"],
@@ -37,10 +36,11 @@ export function Home() {
 
   return (
     <div className="Home">
-      <section
-        className="w-full -mt-14 h-screen bg-cover bg-center relative"
+      <section // h-screen
+        className="w-full -mt-14 bg-cover bg-center relative "
         style={{
-          backgroundImage: 'url("../src/images/header-image.jpg")'
+          backgroundImage: 'url("../src/images/header-image.jpg")',
+          height: "50vh"
         }}
       >
         <div
@@ -57,6 +57,7 @@ export function Home() {
       </section>
       <h1 className="text-2xl uppercase mb-10">Products</h1>
       <section className="flex flex-col md:flex-row gap-4 max-w-6xl mx-auto flex-wrap">
+        {data?.length === 0 && <p>No product found, try searching with other name</p>}
         {data?.map((product) => (
           <Card key={product.id} className="w-[250px]">
             <Link to={`/products/${product.id}`}>
@@ -67,13 +68,13 @@ export function Home() {
                 <CardDescription>{product.quantity}</CardDescription>
                 <CardDescription>{product.id}</CardDescription>
               </CardHeader>
-              <CardContent></CardContent>
-              <CardFooter>
-                <Button className="w-full" onClick={() => handleAddToCart(product)}>
-                  Add to cart
-                </Button>
-              </CardFooter>
             </Link>
+            <CardContent></CardContent>
+            <CardFooter>
+              <Button className="w-full" onClick={() => handleAddToCart(product)}>
+                Add to cart
+              </Button>
+            </CardFooter>
           </Card>
         ))}
       </section>
