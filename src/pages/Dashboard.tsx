@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/table"
 import { Product } from "@/types"
 import { EditDialog } from "@/components/editDialog"
+import { DeleteDialog } from "@/components/deleteDialog"
 
 export function Dashboard() {
   const queryClient = useQueryClient()
@@ -48,23 +49,6 @@ export function Dashboard() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     await postProduct()
-    queryClient.invalidateQueries({ queryKey: ["products"] })
-  }
-
-  const deleteProducts = async (id: string) => {
-    try {
-      const res = await api.delete(`/products/${id}`)
-      return res.data
-    } catch (error) {
-      console.error(error)
-      return Promise.reject(new Error("Something went wrong"))
-    }
-  }
-
-  const handleDeleteProduct = async (id: string) => {
-    const hasConfirmed = confirm("Do you really want to delete?")
-    hasConfirmed && (await deleteProducts(id))
-
     queryClient.invalidateQueries({ queryKey: ["products"] })
   }
 
@@ -160,9 +144,7 @@ export function Dashboard() {
                 <TableCell className="text-left">{product.quantity}</TableCell>
                 <TableCell className="text-left">{product.categoryId}</TableCell>
                 <TableCell className="text-left">
-                  <Button variant="destructive" onClick={() => handleDeleteProduct(product.id)}>
-                    X
-                  </Button>
+                  <DeleteDialog product={product} />
                   <EditDialog product={product} />
                 </TableCell>
               </TableRow>

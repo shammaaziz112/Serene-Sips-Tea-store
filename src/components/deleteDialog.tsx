@@ -15,13 +15,12 @@ import { ChangeEvent, useState } from "react"
 import api from "../api"
 import { useQueryClient } from "@tanstack/react-query"
 
-export function EditDialog({ product }: { product: Product }) {
+export function DeleteDialog({ product }: { product: Product }) {
   const queryClient = useQueryClient()
-  const [updatedProduct, setUpdatedProduct] = useState(product)
 
-  const updateProduct = async () => {
+  const deleteProducts = async (id: string) => {
     try {
-      const res = await api.patch(`/products/${updatedProduct.id}`, updatedProduct)
+      const res = await api.delete(`/products/${id}`)
       return res.data
     } catch (error) {
       console.error(error)
@@ -29,48 +28,27 @@ export function EditDialog({ product }: { product: Product }) {
     }
   }
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const { value } = e.target
-
-    setUpdatedProduct({
-      ...updatedProduct,
-      name: value
-    })
-  }
-
-  const handleUpdate = async () => {
-    await updateProduct()
+  const handleDeleteProduct = async (id: string) => {
+    await deleteProducts(id)
     queryClient.invalidateQueries({ queryKey: ["products"] })
   }
 
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="outline">Edit Profile</Button>
+        <Button variant="outline">Delete</Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle>Edit profile</DialogTitle>
+          <DialogTitle>Delete</DialogTitle>
           <DialogDescription>
             Make changes to your profile here. Click save when you done.
           </DialogDescription>
         </DialogHeader>
-        <div className="grid gap-4 py-4">
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="name" className="text-right">
-              Name
-            </Label>
-            <Input
-              id="name"
-              defaultValue={updatedProduct.name}
-              className="col-span-3"
-              onChange={handleChange}
-            />
-          </div>
-        </div>
+        <p>Do you really want to delete?</p>
         <DialogFooter>
-          <Button type="submit" onClick={handleUpdate}>
-            Save changes
+          <Button variant="destructive" onClick={() => handleDeleteProduct(product.id)}>
+            Submit
           </Button>
         </DialogFooter>
       </DialogContent>
