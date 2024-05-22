@@ -12,7 +12,16 @@ import {
   TableHeader,
   TableRow
 } from "@/components/ui/table"
-import { Product } from "@/types"
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue
+} from "@/components/ui/select"
+import { Category, Product } from "@/types"
 import { EditDialog } from "@/components/editDialog"
 import { DeleteDialog } from "@/components/deleteDialog"
 
@@ -61,12 +70,45 @@ export function Dashboard() {
       return Promise.reject(new Error("Something went wrong"))
     }
   }
+  const getCategories = async () => {
+    try {
+      const res = await api.get("/categories")
+      return res.data
+    } catch (error) {
+      console.error(error)
+      return Promise.reject(new Error("Something went wrong"))
+    }
+  }
 
   // Queries
   const { data: products, error } = useQuery<Product[]>({
     queryKey: ["products"],
     queryFn: getProducts
   })
+  const { data: categories, error: categoryError } = useQuery<Category[]>({
+    queryKey: ["categories"],
+    queryFn: getCategories
+  })
+
+  const productWithCat = products?.map((product) => {
+    const category = categories?.find((category) => category.id === product.categoryId)
+
+    if (category) {
+      return {
+        ...product,
+        categoryId: category.name
+      }
+    }
+
+    return product
+  })
+
+  const handleSelect = (e) => {
+    setProduct({
+      ...product,
+      categoryId: e.target.value
+    })
+  }
 
   return (
     <div>
@@ -79,13 +121,21 @@ export function Dashboard() {
           placeholder="Name"
           onChange={handleChange}
         />
-        <Input
-          name="categoryId"
-          className="mt-4"
-          type="text"
-          placeholder="Category"
-          onChange={handleChange}
-        />
+
+        <select
+          name="cats"
+          onChange={handleSelect}
+          className="border-solid rounded-md border-2 p-2 mt-3 w-11/12 mx-auto"
+        >
+          {categories?.map((cat) => {
+            return (
+              <option key={cat.id} value={cat.id}>
+                {cat.name}
+              </option>
+            )
+          })}
+        </select>
+
         <Input
           name="image"
           className="mt-4"

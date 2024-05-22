@@ -36,7 +36,7 @@ export function DeleteDialog({ product }: { product: Product }) {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="outline">Delete</Button>
+        <Button variant="destructive">Delete</Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>

@@ -7,3 +7,8 @@ export type Product = {
   price: number
   quantity: number
 }
+export type Category = {
+  id: string
+  name: string
+  description: string
+}
