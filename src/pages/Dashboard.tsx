@@ -125,12 +125,12 @@ export function Dashboard() {
         <select
           name="cats"
           onChange={handleSelect}
-          className="border-solid rounded-md border-2 p-2 mt-3 w-11/12 mx-auto"
+          className="border-solid rounded-md border p-2 mt-3 w-full mx-auto"
         >
-          {categories?.map((cat) => {
+          {categories?.map((category) => {
             return (
-              <option key={cat.id} value={cat.id}>
-                {cat.name}
+              <option key={category.id} value={category.id}>
+                {category.name}
               </option>
             )
           })}
@@ -187,7 +187,7 @@ export function Dashboard() {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {products?.map((product) => (
+            {productWithCat?.map((product) => (
               <TableRow key={product.id}>
                 <TableCell className="text-left">{product.name}</TableCell>
                 <TableCell className="text-left">{product.price}</TableCell>
