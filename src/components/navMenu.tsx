@@ -10,7 +10,6 @@ import { Cart } from "./cart"
 import { Search } from "./search"
 
 export function NavMenu() {
-
   return (
     <div>
       <div className="flex justify-center mt-0 ml-80" style={{ color: "#CBB59C" }}>
@@ -24,10 +23,12 @@ export function NavMenu() {
             <NavigationMenuItem className={navigationMenuTriggerStyle()}>
               <NavigationMenuLink className="NavItem">
                 <a href="/products/:productId">Tea</a>
-                </NavigationMenuLink>
+              </NavigationMenuLink>
             </NavigationMenuItem>
             <NavigationMenuItem className={navigationMenuTriggerStyle()}>
-              <NavigationMenuLink className="NavItem">Matcha</NavigationMenuLink>
+              <NavigationMenuLink className="NavItem">
+                <a href="/signup">Matcha</a>
+              </NavigationMenuLink>
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
@@ -44,10 +45,10 @@ export function NavMenu() {
             </NavigationMenuItem>
             <NavigationMenuItem className={navigationMenuTriggerStyle()}>
               <NavigationMenuLink className="NavItem">
-                <Cart/>
+                <Cart />
               </NavigationMenuLink>
             </NavigationMenuItem>
-            <Search/>
+            <Search />
           </NavigationMenuList>
         </NavigationMenu>
       </div>

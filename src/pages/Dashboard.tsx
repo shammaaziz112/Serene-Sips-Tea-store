@@ -12,16 +12,7 @@ import {
   TableHeader,
   TableRow
 } from "@/components/ui/table"
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue
-} from "@/components/ui/select"
-import { Category, Product } from "@/types"
+import { Category, Product, User } from "@/types"
 import { EditDialog } from "@/components/editDialog"
 import { DeleteDialog } from "@/components/deleteDialog"
 
@@ -79,6 +70,20 @@ export function Dashboard() {
       return Promise.reject(new Error("Something went wrong"))
     }
   }
+  const getUsers = async () => {
+    try {
+      const token = localStorage.getItem("token")
+      const res = await api.get("/users", {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      })
+      return res.data
+    } catch (error) {
+      console.error(error)
+      return Promise.reject(new Error("Something went wrong"))
+    }
+  }
 
   // Queries
   const { data: products, error } = useQuery<Product[]>({
@@ -88,6 +93,10 @@ export function Dashboard() {
   const { data: categories, error: categoryError } = useQuery<Category[]>({
     queryKey: ["categories"],
     queryFn: getCategories
+  })
+  const { data: users, error: userError } = useQuery<User[]>({
+    queryKey: ["users"],
+    queryFn: getUsers
   })
 
   const productWithCat = products?.map((product) => {
@@ -103,7 +112,7 @@ export function Dashboard() {
     return product
   })
 
-  const handleSelect = (e) => {
+  const handleSelect = (e: { target: { value: any } }) => {
     setProduct({
       ...product,
       categoryId: e.target.value
@@ -126,6 +135,7 @@ export function Dashboard() {
           name="cats"
           onChange={handleSelect}
           className="border-solid rounded-md border p-2 mt-3 w-full mx-auto"
+          placeholder="Category"
         >
           {categories?.map((category) => {
             return (
@@ -182,7 +192,7 @@ export function Dashboard() {
               <TableHead>Name</TableHead>
               <TableHead>Price</TableHead>
               <TableHead>Quantity</TableHead>
-              <TableHead>CategoryId</TableHead>
+              <TableHead>Category</TableHead>
               <TableHead></TableHead>
             </TableRow>
           </TableHeader>
@@ -196,6 +206,35 @@ export function Dashboard() {
                 <TableCell className="text-left">
                   <DeleteDialog product={product} />
                   <EditDialog product={product} />
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </div>
+
+      <div>
+        <h1 className="scroll-m-20 text-4xl font-semibold tracking-tight mt-10">User</h1>
+        <Table className="">
+          <TableCaption>A list of your Product.</TableCaption>
+          <TableHeader>
+            <TableRow>
+              <TableHead>Name</TableHead>
+              <TableHead>Email</TableHead>
+              <TableHead>Role</TableHead>
+              <TableHead></TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {users?.map((user) => (
+              <TableRow key={user.id}>
+                <TableCell className="text-left">{}</TableCell>
+                <TableCell className="text-left">{user.fullName}</TableCell>
+                <TableCell className="text-left">{user.email}</TableCell>
+                <TableCell className="text-left">{user.role}</TableCell>
+                <TableCell className="text-left">
+                  {/* <DeleteDialog product={product} />
+                  <EditDialog product={product} /> */}
                 </TableCell>
               </TableRow>
             ))}
