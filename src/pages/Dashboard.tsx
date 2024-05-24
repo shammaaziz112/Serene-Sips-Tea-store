@@ -13,13 +13,17 @@ import {
   TableRow
 } from "@/components/ui/table"
 import { Category, Product, User } from "@/types"
-import { EditDialog } from "@/components/editDialog"
-import { DeleteDialog } from "@/components/deleteDialog"
+import ProductService from "../api/products"
+import CategoryService from "../api/categories"
+import UserService from "../api/users"
+import { EditProduct } from "@/components/editProduct"
+import { DeleteProduct } from "@/components/deleteProduct"
 
 export function Dashboard() {
   const queryClient = useQueryClient()
 
   const [product, setProduct] = useState({
+    id: "",
     name: "",
     categoryId: "",
     image: "",
@@ -36,67 +40,25 @@ export function Dashboard() {
     })
   }
 
-  const postProduct = async () => {
-    try {
-      const res = await api.post("/products", product)
-      return res.data
-    } catch (error) {
-      console.error(error)
-      return Promise.reject(new Error("Something went wrong"))
-    }
-  }
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault()
-    await postProduct()
+    await ProductService.createOne(product)
     queryClient.invalidateQueries({ queryKey: ["products"] })
-  }
-
-  const getProducts = async () => {
-    try {
-      const res = await api.get("/products")
-      return res.data
-    } catch (error) {
-      console.error(error)
-      return Promise.reject(new Error("Something went wrong"))
-    }
-  }
-  const getCategories = async () => {
-    try {
-      const res = await api.get("/categories")
-      return res.data
-    } catch (error) {
-      console.error(error)
-      return Promise.reject(new Error("Something went wrong"))
-    }
-  }
-  const getUsers = async () => {
-    try {
-      const token = localStorage.getItem("token")
-      const res = await api.get("/users", {
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
-      })
-      return res.data
-    } catch (error) {
-      console.error(error)
-      return Promise.reject(new Error("Something went wrong"))
-    }
   }
 
   // Queries
   const { data: products, error } = useQuery<Product[]>({
     queryKey: ["products"],
-    queryFn: getProducts
+    queryFn: ProductService.getAll
   })
-  const { data: categories, error: categoryError } = useQuery<Category[]>({
+  const { data: categories, error: catError } = useQuery<Category[]>({
     queryKey: ["categories"],
-    queryFn: getCategories
+    queryFn: CategoryService.getAll
   })
+
   const { data: users, error: userError } = useQuery<User[]>({
     queryKey: ["users"],
-    queryFn: getUsers
+    queryFn: UserService.getAll
   })
 
   const productWithCat = products?.map((product) => {
@@ -204,8 +166,8 @@ export function Dashboard() {
                 <TableCell className="text-left">{product.quantity}</TableCell>
                 <TableCell className="text-left">{product.categoryId}</TableCell>
                 <TableCell className="text-left">
-                  <DeleteDialog product={product} />
-                  <EditDialog product={product} />
+                  <DeleteProduct product={product} />
+                  <EditProduct product={product} />
                 </TableCell>
               </TableRow>
             ))}
@@ -222,19 +184,15 @@ export function Dashboard() {
               <TableHead>Name</TableHead>
               <TableHead>Email</TableHead>
               <TableHead>Role</TableHead>
-              <TableHead></TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             {users?.map((user) => (
               <TableRow key={user.id}>
-                <TableCell className="text-left">{}</TableCell>
                 <TableCell className="text-left">{user.fullName}</TableCell>
                 <TableCell className="text-left">{user.email}</TableCell>
                 <TableCell className="text-left">{user.role}</TableCell>
                 <TableCell className="text-left">
-                  {/* <DeleteDialog product={product} />
-                  <EditDialog product={product} /> */}
                 </TableCell>
               </TableRow>
             ))}

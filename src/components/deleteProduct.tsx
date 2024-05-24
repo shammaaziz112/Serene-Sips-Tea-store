@@ -8,28 +8,16 @@ import {
   DialogTitle,
   DialogTrigger
 } from "@/components/ui/dialog"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
 import { Product } from "../types"
-import { ChangeEvent, useState } from "react"
 import api from "../api"
+import ProductService from "../api/products"
 import { useQueryClient } from "@tanstack/react-query"
 
-export function DeleteDialog({ product }: { product: Product }) {
+export function DeleteProduct({ product }: { product: Product }) {
   const queryClient = useQueryClient()
 
-  const deleteProducts = async (id: string) => {
-    try {
-      const res = await api.delete(`/products/${id}`)
-      return res.data
-    } catch (error) {
-      console.error(error)
-      return Promise.reject(new Error("Something went wrong"))
-    }
-  }
-
   const handleDeleteProduct = async (id: string) => {
-    await deleteProducts(id)
+    await ProductService.deleteOne(id)
     queryClient.invalidateQueries({ queryKey: ["products"] })
   }
 

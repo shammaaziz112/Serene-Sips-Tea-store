@@ -9,6 +9,7 @@ import { DecodedUser, Product } from "./types"
 import { ProductDetails } from "./pages/productDetails"
 import { Login } from "./pages/login"
 import { Signup } from "./pages/signup"
+import { PrivateRoute } from "./components/privateRoute"
 
 const router = createBrowserRouter([
   {
@@ -23,10 +24,12 @@ const router = createBrowserRouter([
   {
     path: "/dashboard",
     element: (
-      <>
-        <NavMenu />
-        <Dashboard />
-      </>
+      <PrivateRoute>
+        <>
+          <NavMenu />
+          <Dashboard />
+        </>
+      </PrivateRoute>
     )
   },
   {
@@ -63,6 +66,7 @@ type GlobalContextType = {
   handleAddToCart: (product: Product) => void
   handleDeleteFromCart: (id: string) => void
   handleStoreUser: (user: DecodedUser) => void
+  handleRemoveCart: () => void
   handleRemoveUser: () => void
 }
 
@@ -100,10 +104,12 @@ function App() {
   }
 
   const handleDeleteFromCart = (id: string) => {
-    const filteredCart = state.cart.filter((item) => item.id !== id)
+    const cart = state.cart
+    const index = cart.findIndex((item) => item.id === id)
+    cart.splice(index, 1)
     setState({
       ...state,
-      cart: filteredCart
+      cart: cart
     })
   }
 
@@ -111,6 +117,13 @@ function App() {
     setState({
       ...state,
       user
+    })
+  }
+
+  const handleRemoveCart = () => {
+    setState({
+      ...state,
+      cart: []
     })
   }
 
@@ -124,7 +137,14 @@ function App() {
   return (
     <div className="App">
       <GlobalContext.Provider
-        value={{ state, handleAddToCart, handleDeleteFromCart, handleStoreUser, handleRemoveUser }}
+        value={{
+          state,
+          handleAddToCart,
+          handleDeleteFromCart,
+          handleStoreUser,
+          handleRemoveCart,
+          handleRemoveUser
+        }}
       >
         <RouterProvider router={router} />
       </GlobalContext.Provider>

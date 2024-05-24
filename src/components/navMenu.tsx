@@ -8,8 +8,27 @@ import {
 import "../styles/NavMenu.css"
 import { Cart } from "./cart"
 import { Search } from "./search"
+import { useContext } from "react"
+import { GlobalContext } from "@/App"
+import { ROLE } from "@/types"
 
 export function NavMenu() {
+  const context = useContext(GlobalContext)
+  if (!context) throw Error("Context is missing")
+  const { state, handleRemoveUser } = context
+
+  console.log(state)
+
+  const handleLogout = () => {
+    if (typeof window !== undefined) {
+      window.location.reload()
+    }
+
+    localStorage.removeItem("token")
+    localStorage.removeItem("user")
+
+    handleRemoveUser()
+  }
   return (
     <div>
       <div className="flex justify-center mt-0 ml-80" style={{ color: "#CBB59C" }}>
@@ -25,11 +44,16 @@ export function NavMenu() {
                 <a href="/products/:productId">Tea</a>
               </NavigationMenuLink>
             </NavigationMenuItem>
-            <NavigationMenuItem className={navigationMenuTriggerStyle()}>
+            {!state.user && (<NavigationMenuItem className={navigationMenuTriggerStyle()}>
               <NavigationMenuLink className="NavItem">
-                <a href="/signup">Matcha</a>
+                <a href="/signup">Signup</a>
               </NavigationMenuLink>
-            </NavigationMenuItem>
+            </NavigationMenuItem>)}
+            {state.user && (<NavigationMenuItem className={navigationMenuTriggerStyle()}>
+              <NavigationMenuLink className="NavItem">
+                <a href="">Logout</a>
+              </NavigationMenuLink>
+            </NavigationMenuItem>)}
           </NavigationMenuList>
         </NavigationMenu>
         <img src="../src/images/Logo2.png" alt="img" className="w-32 z-10" />
@@ -38,11 +62,11 @@ export function NavMenu() {
             <NavigationMenuItem className={navigationMenuTriggerStyle()}>
               <NavigationMenuLink className="NavItem">About</NavigationMenuLink>
             </NavigationMenuItem>
-            <NavigationMenuItem className={navigationMenuTriggerStyle()}>
+            {state.user?.role === ROLE.Admin && (<NavigationMenuItem className={navigationMenuTriggerStyle()}>
               <NavigationMenuLink className="NavItem">
                 <a href="/dashboard">Dashboard</a>
               </NavigationMenuLink>
-            </NavigationMenuItem>
+            </NavigationMenuItem>)}
             <NavigationMenuItem className={navigationMenuTriggerStyle()}>
               <NavigationMenuLink className="NavItem">
                 <Cart />

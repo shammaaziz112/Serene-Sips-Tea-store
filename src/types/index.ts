@@ -22,6 +22,15 @@ export type User = {
   role: string
 }
 
+export type OrderItem = {
+  quantity: number
+  productId: string
+}
+export type OrderCheckout = {
+  addressId: string
+  items: OrderItem[]
+}
+
 export const ROLE = {
   Admin: "Admin",
   Customer: "Customer"
