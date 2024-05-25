@@ -8,18 +8,19 @@ import {
   DialogTitle,
   DialogTrigger
 } from "@/components/ui/dialog"
-import { Product } from "../types"
-import ProductService from "../api/products"
+import { User } from "@/types"
 import { useQueryClient } from "@tanstack/react-query"
+import UserService from "../api/users"
 
-export function DeleteProduct({ product }: { product: Product }) {
+export function DeleteUser({ user }: { user: User }) {
+  if (!user) throw Error("No User delete")
+
   const queryClient = useQueryClient()
 
-  const handleDeleteProduct = async (id: string) => {
-    await ProductService.deleteOne(id)
-    queryClient.invalidateQueries({ queryKey: ["products"] })
+  const handleDeleteUser = async (id: string) => {
+    await UserService.deleteOne(id)
+    queryClient.invalidateQueries({ queryKey: ["users"] })
   }
-
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -34,7 +35,7 @@ export function DeleteProduct({ product }: { product: Product }) {
         </DialogHeader>
         <p>Do you really want to delete?</p>
         <DialogFooter>
-          <Button variant="destructive" onClick={() => handleDeleteProduct(product.id)}>
+          <Button variant="destructive" onClick={() => handleDeleteUser(user.id)}>
             Submit
           </Button>
         </DialogFooter>

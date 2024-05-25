@@ -19,6 +19,7 @@ export type User = {
   fullName: string
   phone: number
   email: string
+  password: string
   role: string
 }
 

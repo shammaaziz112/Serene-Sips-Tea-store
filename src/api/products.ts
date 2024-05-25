@@ -28,9 +28,8 @@ export default {
       console.error(error)
       return Promise.reject(new Error("Something went wrong"))
     }
-  }
-  ,
-  updateOne: async (updatedProduct: Product) => {
+  },
+  updateProduct: async (updatedProduct: Product) => {
     try {
       const res = await api.patch(`/products/${updatedProduct.id}`, updatedProduct)
       return res.data

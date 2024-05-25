@@ -37,7 +37,6 @@ export function AddProduct() {
     setProduct({ ...product, [name]: value })
   }
   const handleCategory = (value: string) => {
-    console.log(value)
     setProduct({ ...product, categoryId: value })
   }
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {

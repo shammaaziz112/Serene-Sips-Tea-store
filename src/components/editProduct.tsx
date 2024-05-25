@@ -1,4 +1,3 @@
-import api from "@/api"
 import { Button } from "@/components/ui/button"
 import {
   Dialog,
@@ -25,9 +24,8 @@ import {
 } from "@/components/ui/select"
 
 export function EditProduct({ product }: { product: Product }) {
-  const queryClient = useQueryClient()
-  
   if (!product) throw Error("No product edit")
+  const queryClient = useQueryClient()
 
   const { data: categories } = useQuery<Category[]>({
     queryKey: ["categories"],
@@ -41,7 +39,7 @@ export function EditProduct({ product }: { product: Product }) {
   }
 
   const handleUpdate = async () => {
-    await ProductService.createOne(updatedProduct)
+    await ProductService.updateOne(updatedProduct)
     queryClient.invalidateQueries({ queryKey: ["products"] })
   }
   const handleCategory = (value: string) => {

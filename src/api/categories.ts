@@ -19,5 +19,14 @@ export default {
       console.error(error)
       return Promise.reject(new Error("Something went wrong"))
     }
+  },
+  updateOne: async (updatedCategory: Category) => {
+    try {
+      const res = await api.patch(`/products/${updatedCategory.id}`, updatedCategory)
+      return res.data
+    } catch (error) {
+      console.error(error)
+      return Promise.reject(new Error("Something went wrong"))
+    }
   }
 }

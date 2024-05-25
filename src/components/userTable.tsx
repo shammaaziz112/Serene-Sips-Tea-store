@@ -10,6 +10,8 @@ import {
 } from "@/components/ui/table"
 import { User } from "@/types"
 import UserService from "../api/users"
+import { EditUser } from "./editUser"
+import { DeleteUser } from "./deleteUser"
 
 export function UserTable() {
   const { data: users } = useQuery<User[]>({
@@ -33,6 +35,10 @@ export function UserTable() {
               <TableCell className="text-left">{user.fullName}</TableCell>
               <TableCell className="text-left">{user.email}</TableCell>
               <TableCell className="text-left">{user.role}</TableCell>
+              <TableCell className="flex justify-around">
+                <EditUser user={user} />
+                <DeleteUser user={user} />
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>
