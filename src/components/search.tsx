@@ -41,11 +41,11 @@ export function Search() {
   }
   return (
     <div>
-      <form className="flex-1 relative ml-24 mb-1" onSubmit={handleSearch}>
+      <form className="flex-1 relative" onSubmit={handleSearch}>
         <SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-500 dark:text-gray-400" />
         <input
           value={searchBy}
-          className="pl-9 h-9 w-full text-lg rounded-md bg-gray-100 dark:bg-gray-800 dark:text-gray-50 focus:outline-none focus:ring-1 focus:ring-gray-900 dark:focus:ring-gray-50"
+          className="pl-9 h-7 w-full text-base rounded-md bg-gray-100 dark:bg-gray-800 dark:text-gray-50 focus:outline-none focus:ring-1 focus:ring-gray-900 dark:focus:ring-gray-50"
           placeholder="Search"
           type="search"
           onChange={handleChange}

@@ -42,24 +42,24 @@ export function AddProduct() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     await ProductService.createOne(product)
-    await handleReset()
     queryClient.invalidateQueries({ queryKey: ["products"] })
+    // await handleReset()
   }
-  const handleReset = async () => {
-    setProduct({
-      id: "",
-      name: "",
-      categoryId: "712ccfce-f380-4bb0-95b6-a3ac5385830a",
-      image: "",
-      quantity: 0,
-      price: 0,
-      description: ""
-    })
-  }
+  // const handleReset = async () => {
+  //   setProduct({
+  //     id: "",
+  //     name: "",
+  //     categoryId: product.categoryId,
+  //     image: "",
+  //     quantity: 0,
+  //     price: 0,
+  //     description: ""
+  //   })
+  // }
 
   return (
     <>
-      <form className="w-1/2 mx-auto" onSubmit={handleSubmit}>
+      <form className="w-1/2 mx-auto" onSubmit={handleSubmit} >
         <h2 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0">
           Add new product
         </h2>

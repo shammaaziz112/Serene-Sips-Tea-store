@@ -12,6 +12,7 @@ import { useContext } from "react"
 import { GlobalContext } from "@/App"
 import { ROLE } from "@/types"
 import { Link } from "react-router-dom"
+import { Header } from "./header"
 
 export function NavMenu() {
   const context = useContext(GlobalContext)
@@ -27,56 +28,36 @@ export function NavMenu() {
   }
   return (
     <div>
-      <div className="flex justify-center mt-0 ml-80" style={{ color: "#CBB59C" }}>
+      <Header />
+
+      <div className="flex justify-center mt-16 " style={{ color: "#CBB59C" }}>
         <NavigationMenu className="text-3xl uppercase mb-9">
           <NavigationMenuList>
             <NavigationMenuItem className={navigationMenuTriggerStyle()}>
               <NavigationMenuLink className="NavItem">
-                <a href="/">Home</a>
+                <a href="/">Tea</a>
               </NavigationMenuLink>
             </NavigationMenuItem>
             <NavigationMenuItem className={navigationMenuTriggerStyle()}>
               <NavigationMenuLink className="NavItem">
-                <a href="/products/:productId">Tea</a>
+                <a href="/products/:productId">Matcha</a>
               </NavigationMenuLink>
             </NavigationMenuItem>
-            {!state.user && (
-              <NavigationMenuItem className={navigationMenuTriggerStyle()}>
-                <NavigationMenuLink className="NavItem">
-                  <a href="/signup">Signup</a>
-                </NavigationMenuLink>
-              </NavigationMenuItem>
-            )}
-            {state.user && (
-              <NavigationMenuItem className={navigationMenuTriggerStyle()}>
-                <NavigationMenuLink className="NavItem">
-                  <Link className="transition-colors" onClick={handleLogout} to="/">
-                    Logout
-                  </Link>
-                </NavigationMenuLink>
-              </NavigationMenuItem>
-            )}
           </NavigationMenuList>
         </NavigationMenu>
-        <img src="../src/images/Logo2.png" alt="img" className="w-32 z-10" />
+
+        <img src="../src/images/Logo1.png" alt="img" className="w-32 mx-4 z-10" />
+
         <NavigationMenu className="text-3xl uppercase mb-9">
           <NavigationMenuList>
+            <NavigationMenuItem className={navigationMenuTriggerStyle()}>
+              <NavigationMenuLink className="NavItem">Accessories</NavigationMenuLink>
+            </NavigationMenuItem>
             <NavigationMenuItem className={navigationMenuTriggerStyle()}>
               <NavigationMenuLink className="NavItem">About</NavigationMenuLink>
             </NavigationMenuItem>
-            {state.user?.role === ROLE.Admin && (
-              <NavigationMenuItem className={navigationMenuTriggerStyle()}>
-                <NavigationMenuLink className="NavItem">
-                  <a href="/dashboard">Dashboard</a>
-                </NavigationMenuLink>
-              </NavigationMenuItem>
-            )}
-            <NavigationMenuItem className={navigationMenuTriggerStyle()}>
-              <NavigationMenuLink className="NavItem">
-                <Cart />
-              </NavigationMenuLink>
-            </NavigationMenuItem>
-            <Search />
+ 
+            {/* <Search /> */}
           </NavigationMenuList>
         </NavigationMenu>
       </div>
