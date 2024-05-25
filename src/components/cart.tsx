@@ -16,6 +16,8 @@ import {
 } from "./ui/sheet"
 import { OrderCheckout, Product } from "@/types"
 import api from "@/api"
+import { AddAddress } from "./addAddress"
+import { ChooseAddres } from "./chooseAddress"
 
 export function Cart() {
   const provider = useContext(GlobalContext)
@@ -35,7 +37,7 @@ export function Cart() {
   }, 0)
 
   const checkoutOrder: OrderCheckout = {
-    addressId: "",
+    addressId: "a6b6fedb-60dc-4bc6-aa3b-2ce63aeb6c04",
     items: []
   }
 
@@ -51,12 +53,12 @@ export function Cart() {
   const handleCheckout = async () => {
     try {
       const token = localStorage.getItem("token")
-      const res = await api.post("/orders/chockout", checkoutOrder, {
+      const res = await api.post("/orders/checkout", checkoutOrder, {
         headers: {
           Authorization: `Bearer ${token}`
         }
       })
-      if(res.status===201){
+      if (res.status === 201) {
         handleRemoveCart()
       }
       return res.data
@@ -125,6 +127,10 @@ export function Cart() {
               )
             })}
           </div>
+
+          <ChooseAddres />
+          <AddAddress />
+
           <SheetFooter className="border-t px-4 py-6">
             <div className="flex flex-col">
               <div className="flex items-center justify-center">

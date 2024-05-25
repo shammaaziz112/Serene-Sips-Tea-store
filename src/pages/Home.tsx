@@ -29,14 +29,14 @@ export function Home() {
     }
   }
   // Queries
-  const { data, error } = useQuery<Product[]>({
+  const { data: products, error } = useQuery<Product[]>({
     queryKey: ["products"],
     queryFn: getProducts
   })
 
   return (
     <div className="Home">
-      <section // h-screen
+      <section 
         className="w-full -mt-14 bg-cover bg-center relative "
         style={{
           backgroundImage: 'url("../src/images/header-image.jpg")',
@@ -57,8 +57,8 @@ export function Home() {
       </section>
       <h1 className="text-2xl uppercase mb-10">Products</h1>
       <section className="flex flex-col md:flex-row gap-4 max-w-6xl mx-auto flex-wrap">
-        {data?.length === 0 && <p>No product found, try searching with other name</p>}
-        {data?.map((product) => (
+        {products?.length === 0 && <p>No product found, try searching with other name</p>}
+        {products?.map((product) => (
           <Card key={product.id} className="w-[250px]">
             <Link to={`/products/${product.id}`}>
               <CardHeader>

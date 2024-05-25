@@ -22,6 +22,14 @@ export type User = {
   role: string
 }
 
+export type Address = {
+  id: string,
+  country: string,
+  city: string,
+  street: string,
+  zip_code: string
+}
+
 export type OrderItem = {
   quantity: number
   productId: string

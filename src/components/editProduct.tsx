@@ -12,9 +12,9 @@ import {
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Category, Product } from "@/types"
-import { useQuery, useQueryClient } from "@tanstack/react-query"
 import ProductService from "../api/products"
-import CategoryService from "../api/categories"
+import categoryService from "../api/categories"
+import { useQuery, useQueryClient } from "@tanstack/react-query"
 import { ChangeEvent, useState } from "react"
 import {
   Select,
@@ -25,14 +25,14 @@ import {
 } from "@/components/ui/select"
 
 export function EditProduct({ product }: { product: Product }) {
+  const queryClient = useQueryClient()
+  
   if (!product) throw Error("No product edit")
 
-  const { data } = useQuery<Category[]>({
+  const { data: categories } = useQuery<Category[]>({
     queryKey: ["categories"],
-    queryFn: CategoryService.getAll
+    queryFn: categoryService.getAll
   })
-
-  const queryClient = useQueryClient()
   const [updatedProduct, setUpdatedProduct] = useState(product)
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -41,7 +41,7 @@ export function EditProduct({ product }: { product: Product }) {
   }
 
   const handleUpdate = async () => {
-    await ProductService.updateOne(updatedProduct)
+    await ProductService.createOne(updatedProduct)
     queryClient.invalidateQueries({ queryKey: ["products"] })
   }
   const handleCategory = (value: string) => {
@@ -100,13 +100,12 @@ export function EditProduct({ product }: { product: Product }) {
             <Label htmlFor="categoryId" className="text-right">
               Category
             </Label>
-
             <Select defaultValue={product.categoryId} onValueChange={handleCategory}>
               <SelectTrigger className="col-span-3" name="categoryId">
                 <SelectValue placeholder="Category" />
               </SelectTrigger>
               <SelectContent>
-                {data?.map((category: Category) => {
+                {categories?.map((category: Category) => {
                   return (
                     <SelectItem key={category.id} value={category.id}>
                       {category.name}

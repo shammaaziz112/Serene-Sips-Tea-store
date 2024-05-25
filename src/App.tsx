@@ -66,6 +66,7 @@ type GlobalContextType = {
   handleAddToCart: (product: Product) => void
   handleDeleteFromCart: (id: string) => void
   handleStoreUser: (user: DecodedUser) => void
+  handleStoreAddress: (address: DecodedUser) => void
   handleRemoveCart: () => void
   handleRemoveUser: () => void
 }
@@ -73,13 +74,15 @@ type GlobalContextType = {
 type GlobalContext = {
   cart: Product[]
   user: DecodedUser | null
+  address: DecodedUser | null
 }
 export const GlobalContext = createContext<GlobalContextType | null>(null)
 
 function App() {
   const [state, setState] = useState<GlobalContext>({
     cart: [],
-    user: null
+    user: null,
+    address: null
   })
 
   useEffect(() => {
@@ -91,12 +94,17 @@ function App() {
         user: decodedUser
       })
     }
+    const address = localStorage.getItem("address")
+    if (address) {
+      const decodedUser = JSON.parse(address)
+      setState({
+        ...state,
+        address: decodedUser
+      })
+    }
   }, [])
 
   const handleAddToCart = (product: Product) => {
-    // *** for Duplicated in cart ***
-    // const isDuplicated = state.cart.find((cartItem) => cartItem.id === product.id)
-    // if (isDuplicated) return
     setState({
       ...state,
       cart: [...state.cart, product]
@@ -117,6 +125,13 @@ function App() {
     setState({
       ...state,
       user
+    })
+  }
+
+  const handleStoreAddress = (address: DecodedUser) => {
+    setState({
+      ...state,
+      address
     })
   }
 
@@ -142,6 +157,7 @@ function App() {
           handleAddToCart,
           handleDeleteFromCart,
           handleStoreUser,
+          handleStoreAddress,
           handleRemoveCart,
           handleRemoveUser
         }}
