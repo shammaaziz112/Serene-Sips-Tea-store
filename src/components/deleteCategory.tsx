@@ -1,4 +1,3 @@
-import api from "@/api"
 import { Button } from "@/components/ui/button"
 import {
   Dialog,
@@ -12,23 +11,15 @@ import {
 import { Label } from "@/components/ui/label"
 import { Category } from "@/types"
 import { useQueryClient } from "@tanstack/react-query"
+import categoryService from "../api/categories"
 
 export function DeleteCategory({ category }: { category: Category }) {
   if (!category) throw Error("No User delete")
 
-  const deleteCategory = async () => {
-    try {
-      const res = await api.delete(`/categories/${category.id}`)
-      return res.data
-    } catch (error) {
-      console.error(error)
-      return Promise.reject(new Error("Something went wrong"))
-    }
-  }
   const queryClient = useQueryClient()
 
   const handleDelete = async () => {
-    await deleteCategory()
+    await categoryService.deleteOne(category.id)
     queryClient.invalidateQueries({ queryKey: ["categories"] })
   }
   return (

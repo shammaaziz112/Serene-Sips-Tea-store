@@ -34,7 +34,7 @@ export default {
       return Promise.reject(new Error("Something went wrong"))
     }
   },
-  updateProduct: async (updatedUser: User) => {
+  updateOne: async (updatedUser: User) => {
     try {
       const res = await api.patch(`/users/${updatedUser.id}`, updatedUser)
       return res.data

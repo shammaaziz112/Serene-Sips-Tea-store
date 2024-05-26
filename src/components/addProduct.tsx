@@ -43,7 +43,7 @@ export function AddProduct() {
     e.preventDefault()
     await ProductService.createOne(product)
     queryClient.invalidateQueries({ queryKey: ["products"] })
-    // await handleReset()
+    // await handleReset()  
   }
   // const handleReset = async () => {
   //   setProduct({

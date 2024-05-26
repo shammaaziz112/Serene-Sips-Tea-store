@@ -4,7 +4,12 @@ import api from "."
 export default {
   getAll: async () => {
     try {
-      const res = await api.get("/categories")
+      const token = localStorage.getItem("token")
+      const res = await api.get("/categories", {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      })
       return res.data
     } catch (error) {
       console.error(error)
@@ -22,7 +27,16 @@ export default {
   },
   updateOne: async (updatedCategory: Category) => {
     try {
-      const res = await api.patch(`/products/${updatedCategory.id}`, updatedCategory)
+      const res = await api.patch(`/categories/${updatedCategory.id}`, updatedCategory)
+      return res.data
+    } catch (error) {
+      console.error(error)
+      return Promise.reject(new Error("Something went wrong"))
+    }
+  },
+  deleteOne: async (id: string) => {
+    try {
+      const res = await api.delete(`/categories/${id}`)
       return res.data
     } catch (error) {
       console.error(error)

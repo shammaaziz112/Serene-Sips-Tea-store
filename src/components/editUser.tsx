@@ -34,7 +34,7 @@ export function EditUser({ user }: { user: User }) {
     setUpdatedUser({ ...updatedUser, [name]: value })
   }
   const handleUpdate = async () => {
-    await UserService.updateProduct(updatedUser)
+    await UserService.updateOne(updatedUser)
     queryClient.invalidateQueries({ queryKey: ["users"] })
   }
   const handleRole = (value: string) => {

@@ -31,9 +31,9 @@ export function CategoriesTable() {
         </TableHeader>
         <TableBody>
           {categories?.map((category) => (
-            <TableRow key={category?.id}>
-              <TableCell className="text-left">{category?.name}</TableCell>
-              <TableCell className="text-left">{category?.description}</TableCell>
+            <TableRow key={category.id}>
+              <TableCell className="text-left">{category.name}</TableCell>
+              <TableCell className="text-left">{category.description}</TableCell>
               <TableCell className="flex justify-around">
                 <EditCategory category={category} />
                 <DeleteCategory category={category} />

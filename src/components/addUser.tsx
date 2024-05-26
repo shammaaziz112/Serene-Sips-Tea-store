@@ -19,15 +19,11 @@ export function AddUser() {
     id: "",
     email: "",
     fullName: "",
-    phone: 0,
+    phone: "",
     password: "",
     role: "Customer"
   })
-  // id: string
-  // fullName: string
-  // phone: number
-  // email: string
-  // role: string
+
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target
@@ -38,15 +34,15 @@ export function AddUser() {
   }
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    UserService.createOne(user)
-    await handleReset()
+    await UserService.createOne(user)
     queryClient.invalidateQueries({ queryKey: ["Users"] })
+    await handleReset()
   }
   const handleReset = async () => {
     setUser({
       id: "",
       fullName: "",
-      phone: 0,
+      phone: "",
       email: "",
       password: "",
       role: "Customer"
@@ -101,7 +97,7 @@ export function AddUser() {
         <Input
           name="phone"
           className="mt-5"
-          type="number"
+          type="text"
           placeholder="Phone number"
           onChange={handleChange}
           value={user.phone}

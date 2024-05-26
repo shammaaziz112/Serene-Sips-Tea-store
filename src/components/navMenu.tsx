@@ -19,18 +19,17 @@ export function NavMenu() {
   if (!context) throw Error("Context is missing")
   const { state, handleRemoveUser } = context
 
-  console.log(state)
+  // console.log(state)
 
-  const handleLogout = () => {
-    localStorage.removeItem("token")
-    localStorage.removeItem("user")
-    handleRemoveUser()
-  }
+  // const handleLogout = () => {
+  //   localStorage.removeItem("token")
+  //   localStorage.removeItem("user")
+  //   handleRemoveUser()
+  // }
   return (
     <div>
       <Header />
-
-      <div className="flex justify-center mt-16 " style={{ color: "#CBB59C" }}>
+      <div className="flex justify-center mt-16 ml-[5%]" style={{ color: "#CBB59C" }}>
         <NavigationMenu className="text-3xl uppercase mb-9">
           <NavigationMenuList>
             <NavigationMenuItem className={navigationMenuTriggerStyle()}>

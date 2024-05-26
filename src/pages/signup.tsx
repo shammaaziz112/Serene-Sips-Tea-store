@@ -10,7 +10,7 @@ export function Signup() {
     fullName: "",
     email: "",
     password: "",
-    phone: null
+    phone: ""
   })
 
   const handleSignup = async () => {
@@ -24,11 +24,11 @@ export function Signup() {
   }
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const { name, value, valueAsNumber } = e.target
+    const { name, value } = e.target
 
     setUser({
       ...user,
-      [name]: name === "phone" ? valueAsNumber : value
+      [name]: value 
     })
   }
 
@@ -69,7 +69,7 @@ export function Signup() {
         <Input
           name="phone"
           className="mt-4"
-          type="number"
+          type="text"
           placeholder="Phone number"
           onChange={handleChange}
         />
