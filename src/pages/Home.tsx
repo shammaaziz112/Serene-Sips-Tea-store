@@ -56,7 +56,7 @@ export function Home() {
         ></div>
       </section> */}
       <section
-        className="w-full -mt-14 relative "
+        className="w-full -mt-14 relative"
         style={{
           width: "102%",
           position: "relative",

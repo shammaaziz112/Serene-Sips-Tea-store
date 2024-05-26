@@ -36,12 +36,7 @@ export function Header() {
         <span>Serene Sips</span>
       </Link>
       <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
-        <Link
-          className="text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50 transition-colors"
-          to="/"
-        >
-          Home
-        </Link>
+
         {state.user?.role === ROLE.Admin && (
           <Link
             className="text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50 transition-colors"

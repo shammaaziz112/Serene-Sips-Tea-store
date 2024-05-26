@@ -34,7 +34,7 @@ export function DeleteCategory({ category }: { category: Category }) {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="outline">Delete</Button>
+        <Button variant="destructive">Delete</Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
@@ -55,6 +55,7 @@ export function DeleteCategory({ category }: { category: Category }) {
         <DialogFooter>
           <Button
             type="submit"
+            variant="destructive"
             onClick={() => {
               handleDelete()
             }}
