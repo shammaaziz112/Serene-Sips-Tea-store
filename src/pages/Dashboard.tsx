@@ -138,10 +138,7 @@ export function Dashboard() {
                     <TableHead className="text-left">Name</TableHead>
                     <TableHead className="text-left">Description</TableHead>
                     <TableHead className="text-right">
-                      <Button size="sm">
-                        <PlusIcon className="h-4 w-4 mr-2" />
-                        Add Category
-                      </Button>
+                      <AddCategory />
                     </TableHead>
                   </TableRow>
                 </TableHeader>
