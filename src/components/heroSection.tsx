@@ -25,12 +25,12 @@ export function HeroSection(){
             objectFit: "cover"
           }}
         >
-          <source src="../src/video/teaCommercial.mp4" type="video/mp4" />
+          <source src="public/video/teaCommercial.mp4" type="video/mp4" />
         </video>
         <div
           style={{
             width: "100%",
-            backgroundImage: 'url("../src/images/waves-white.png")',
+            backgroundImage: 'url("public/images/waves-white.png")',
             height: "65px",
             backgroundSize: "cover",
             position: "absolute",

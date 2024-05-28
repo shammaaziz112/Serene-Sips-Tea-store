@@ -14,7 +14,7 @@ export function Home() {
           className="rotate-180"
           style={{
             width: "100%",
-            backgroundImage: 'url("../src/images/waves-white.png")',
+            backgroundImage: 'url("public/images/waves-white.png")',
             height: "65px",
             backgroundSize: "cover",
             zIndex: "1"
@@ -28,12 +28,12 @@ export function Home() {
           {/* <div className="w-full h-0.5 bg-[#313237] dark:bg-gray-700 mb-8 md:mb-10 lg:mb-12 " /> */}
           <ProductByCategory categoryId="61808512-01b7-4cd7-8911-26fd80f3cf54" />
         </div>
-        
+
         <div
           className=""
           style={{
             width: "100%",
-            backgroundImage: 'url("../src/images/waves-white.png")',
+            backgroundImage: 'url("public/images/waves-white.png")',
             height: "65px",
             backgroundSize: "cover",
             zIndex: "1"
@@ -58,7 +58,7 @@ export function Home() {
           className="rotate-180"
           style={{
             width: "100%",
-            backgroundImage: 'url("../src/images/waves-white.png")',
+            backgroundImage: 'url("public/images/waves-white.png")',
             height: "65px",
             backgroundSize: "cover",
             zIndex: "1"
@@ -77,7 +77,7 @@ export function Home() {
           className=""
           style={{
             width: "100%",
-            backgroundImage: 'url("../src/images/waves-white.png")',
+            backgroundImage: 'url("public/images/waves-white.png")',
             height: "65px",
             backgroundSize: "cover",
             zIndex: "1"
@@ -85,40 +85,37 @@ export function Home() {
         ></div>
       </div>
 
-
       <section className=" py-10 md:py-14 lg:py-16 ">
-      <div className="container px-4 md:px-6">
-        <div className="mx-auto max-w-3xl text-center">
-          <div className="inline-block rounded-lg bg-gray-200 px-3 py-1 text-sm font-medium dark:bg-gray-700">
-            Free Delivery & 24/7 Support
-          </div>
-          <h2 className="mt-4 text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-            Enjoy Hassle-Free Shopping at Our Tea Shop
-          </h2>
-          <p className="mt-4 text-gray-500 md:text-xl dark:text-gray-400">
-            Get your tea orders delivered to your doorstep for free, and rest assured that our customers are always
-            satisfied with our products and services. Were here to support you 24/7.
-          </p>
-          <div className="mt-8 flex justify-center gap-6">
-            <div className="flex flex-col items-center">
-              <TruckIcon className="h-12 w-12 text-primary" />
-              <span className="mt-2 text-sm font-medium">Free Delivery</span>
+        <div className="container px-4 md:px-6">
+          <div className="mx-auto max-w-3xl text-center">
+            <div className="inline-block rounded-lg bg-gray-200 px-3 py-1 text-sm font-medium dark:bg-gray-700">
+              Free Delivery & 24/7 Support
             </div>
-            <div className="flex flex-col items-center">
-              <ThumbsUpIcon className="h-12 w-12 text-primary" />
-              <span className="mt-2 text-sm font-medium">Satisfied Customers</span>
-            </div>
-            <div className="flex flex-col items-center">
-              <ClockIcon className="h-12 w-12 text-primary" />
-              <span className="mt-2 text-sm font-medium">24/7 Support</span>
+            <h2 className="mt-4 text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+              Enjoy Hassle-Free Shopping at Our Tea Shop
+            </h2>
+            <p className="mt-4 text-gray-500 md:text-xl dark:text-gray-400">
+              Get your tea orders delivered to your doorstep for free, and rest assured that our
+              customers are always satisfied with our products and services. Were here to support
+              you 24/7.
+            </p>
+            <div className="mt-8 flex justify-center gap-6">
+              <div className="flex flex-col items-center">
+                <TruckIcon className="h-12 w-12 text-primary" />
+                <span className="mt-2 text-sm font-medium">Free Delivery</span>
+              </div>
+              <div className="flex flex-col items-center">
+                <ThumbsUpIcon className="h-12 w-12 text-primary" />
+                <span className="mt-2 text-sm font-medium">Satisfied Customers</span>
+              </div>
+              <div className="flex flex-col items-center">
+                <ClockIcon className="h-12 w-12 text-primary" />
+                <span className="mt-2 text-sm font-medium">24/7 Support</span>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-
-
-          
+      </section>
     </div>
   )
 }
@@ -142,7 +139,6 @@ function ClockIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
     </svg>
   )
 }
-
 
 function ThumbsUpIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
   return (
