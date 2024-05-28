@@ -4,6 +4,7 @@
     "module": "ESNext",
     "moduleResolution": "Node",
     "allowSyntheticDefaultImports": true,
+    "isolatedModules": false,
     "strict": true,
     "forceConsistentCasingInFileNames": true
   },
