@@ -59,15 +59,15 @@ export function DisplayProduct() {
   //             </CardFooter>
   //           </Card>
   //         ))}
-        //         <div className=""
-        //   style={{
-        //     width: "100%",
-        //     backgroundImage: 'url("../src/images/waves-white.png")',
-        //     height: "65px",
-        //     backgroundSize: "cover",
-        //     zIndex: "1",
-        //   }}
-        // ></div>
+  //         <div className=""
+  //   style={{
+  //     width: "100%",
+  //     backgroundImage: 'url("../src/images/waves-white.png")',
+  //     height: "65px",
+  //     backgroundSize: "cover",
+  //     zIndex: "1",
+  //   }}
+  // ></div>
   //       </section>
   //       {error && <p className="text-red-500">{error.message}</p>}
   //     </div>
