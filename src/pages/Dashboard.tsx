@@ -167,10 +167,7 @@ export function Dashboard() {
                     <TableHead className="text-left">Price</TableHead>
                     <TableHead className="text-left">Quantity</TableHead>
                     <TableHead className="text-right">
-                      <Button size="sm">
-                        <PlusIcon className="h-4 w-4 mr-2" />
-                        Add Category
-                      </Button>
+                      <AddProduct />
                     </TableHead>
                   </TableRow>
                 </TableHeader>
@@ -200,10 +197,7 @@ export function Dashboard() {
                     <TableHead className="text-left">Email</TableHead>
                     <TableHead className="text-left">Role</TableHead>
                     <TableHead className="text-right">
-                      <Button size="sm">
-                        <PlusIcon className="h-4 w-4 mr-2" />
-                        Add Category
-                      </Button>
+                      <AddUser />
                     </TableHead>
                   </TableRow>
                 </TableHeader>

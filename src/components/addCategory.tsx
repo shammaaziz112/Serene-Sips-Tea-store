@@ -29,7 +29,6 @@ export function AddCategory() {
     setCategory({ ...category, [name]: value })
   }
   const handleSubmit = async (e: { preventDefault: () => void }) => {
-    // e.preventDefault()
     await categoryService.createOne(category)
     await handleReset()
     queryClient.invalidateQueries({ queryKey: ["categories"] })
@@ -43,36 +42,6 @@ export function AddCategory() {
   }
   return (
     <>
-      {/* <form className="w-1/2 mx-auto" onSubmit={handleSubmit}>
-        <h2 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0">
-          Add new category
-        </h2>
-
-        <Input
-          name="name"
-          className="mt-5"
-          type="text"
-          placeholder="Name"
-          onChange={handleChange}
-          value={category.name}
-        />
-        <Input
-          name="description"
-          className="mt-5"
-          type="text"
-          placeholder="Description"
-          onChange={handleChange}
-          value={category.description}
-        />
-        <div className="flex justify-evenly">
-          <Button className="mt-5 mx-1 w-2/3" type="submit">
-            Add
-          </Button>
-          <Button className="mt-5 mx-1 w-2/3" type="reset">
-            Reset
-          </Button>
-        </div>
-      </form> */}
       <Dialog>
         <DialogTrigger asChild>
           <Button size="sm">
@@ -83,7 +52,7 @@ export function AddCategory() {
         <DialogContent className="sm:max-w-[425px]">
           <DialogHeader>
             <DialogTitle>Add Category</DialogTitle>
-            <DialogDescription>Add new Gategory. Click save when you are done.</DialogDescription>
+            <DialogDescription>Add new category. Click save when you are done.</DialogDescription>
           </DialogHeader>
           <div className="grid gap-4 py-4">
             <div className="grid grid-cols-4 items-center gap-4">
