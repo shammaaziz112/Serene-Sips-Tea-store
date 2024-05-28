@@ -13,6 +13,7 @@ import Footer from "./components/footer"
 import { Tea } from "./pages/Tea"
 import { Matcha } from "./pages/Matcha"
 import { Accessories } from "./pages/Accessories"
+import About from "./pages/About"
 
 const router = createBrowserRouter([
   {
@@ -51,6 +52,16 @@ const router = createBrowserRouter([
       <>
         <NavBar />
         <Accessories />
+        <Footer />
+      </>
+    )
+  },
+  {
+    path: "/About",
+    element: (
+      <>
+        <NavBar />
+        <About />
         <Footer />
       </>
     )

@@ -3,70 +3,110 @@ import { SVGProps } from "react"
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-100 py-12 dark:bg-gray-800 text-left">
-      <div className="container mx-auto px-4 md:px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div className="flex flex-col items-start gap-4">
-          <Link className="flex items-center gap-2" to="#">
-            <CupSodaIcon className="w-8 h-8 text-primary" />
-            <span className="text-xl font-bold">Serene Sips Tea Shop</span>
-          </Link>
-          <p className="text-gray-500 dark:text-gray-400">
-            Discover the art of tea at our cozy shop, where we curate the finest loose-leaf teas from around the world.
-          </p>
-          <div className="flex items-center gap-4">
-            <Link className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50" to="#">
-              <FacebookIcon className="w-6 h-6" />
+    <div className="bg-[#fceadc]">
+      <div
+        className="rotate-180"
+        style={{
+          width: "100%",
+          backgroundImage: 'url("images/waves-white.png")',
+          height: "65px",
+          backgroundSize: "cover",
+          zIndex: "1"
+        }}
+      ></div>
+      <footer className=" py-12 dark:bg-gray-800 text-left">
+        <div className="container mx-auto px-4 md:px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="flex flex-col items-start gap-4">
+            <Link className="flex items-center gap-2" to="#">
+              <CupSodaIcon className="w-8 h-8 text-primary" />
+              <span className="text-xl font-bold">Serene Sips Shop</span>
             </Link>
-            <Link className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50" to="#">
-              <TwitterIcon className="w-6 h-6" />
-            </Link>
-            <Link className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50" to="#">
-              <InstagramIcon className="w-6 h-6" />
-            </Link>
+            <p className="text-gray-500 dark:text-gray-400">
+              Discover the art of tea at our cozy shop, where we curate the finest loose-leaf teas
+              from around the world.
+            </p>
+            <div className="flex items-center gap-4">
+              <Link
+                className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+                to="#"
+              >
+                <FacebookIcon className="w-6 h-6" />
+              </Link>
+              <Link
+                className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+                to="#"
+              >
+                <TwitterIcon className="w-6 h-6" />
+              </Link>
+              <Link
+                className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+                to="#"
+              >
+                <InstagramIcon className="w-6 h-6" />
+              </Link>
+            </div>
+          </div>
+          <div className="flex flex-col items-start gap-4">
+            <h3 className="text-lg font-semibold">Contact Us</h3>
+            <div className="flex flex-col gap-2">
+              <div className="flex items-center gap-2">
+                <MapPinIcon className="w-5 h-5 text-primary" />
+                <span>123 Main St, Anytown USA</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <PhoneIcon className="w-5 h-5 text-primary" />
+                <span>(123) 456-7890</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <ClockIcon className="w-5 h-5 text-primary" />
+                <span>Mon-Sat: 8am - 6pm</span>
+              </div>
+            </div>
+          </div>
+          <div className="flex flex-col items-start gap-4">
+            <h3 className="text-lg font-semibold">Quick Links</h3>
+            <div className="grid grid-cols-2 gap-2">
+              <Link
+                className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+                to="/"
+              >
+                Home
+              </Link>
+              <Link
+                className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+                to="/About"
+              >
+                About
+              </Link>
+              <Link
+                className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+                to="#"
+              >
+                Shop
+              </Link>
+              <Link
+                className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+                to="#"
+              >
+                Contact
+              </Link>
+              <Link
+                className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+                to="#"
+              >
+                FAQ
+              </Link>
+              <Link
+                className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+                to="#"
+              >
+                Privacy Policy
+              </Link>
+            </div>
           </div>
         </div>
-        <div className="flex flex-col items-start gap-4">
-          <h3 className="text-lg font-semibold">Contact Us</h3>
-          <div className="flex flex-col gap-2">
-            <div className="flex items-center gap-2">
-              <MapPinIcon className="w-5 h-5 text-primary" />
-              <span>123 Main St, Anytown USA</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <PhoneIcon className="w-5 h-5 text-primary" />
-              <span>(123) 456-7890</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <ClockIcon className="w-5 h-5 text-primary" />
-              <span>Mon-Sat: 8am - 6pm</span>
-            </div>
-          </div>
-        </div>
-        <div className="flex flex-col items-start gap-4">
-          <h3 className="text-lg font-semibold">Quick Links</h3>
-          <div className="grid grid-cols-2 gap-2">
-            <Link className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50" to="#">
-              Home
-            </Link>
-            <Link className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50" to="#">
-              About
-            </Link>
-            <Link className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50" to="#">
-              Shop
-            </Link>
-            <Link className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50" to="#">
-              Contact
-            </Link>
-            <Link className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50" to="#">
-              FAQ
-            </Link>
-            <Link className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50" to="#">
-              Privacy Policy
-            </Link>
-          </div>
-        </div>
-      </div>
-    </footer>
+      </footer>
+    </div>
   )
 }
 
@@ -90,7 +130,6 @@ function ClockIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
   )
 }
 
-
 function CupSodaIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
   return (
     <svg
@@ -113,7 +152,6 @@ function CupSodaIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
   )
 }
 
-
 function FacebookIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
   return (
     <svg
@@ -132,7 +170,6 @@ function FacebookIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) 
     </svg>
   )
 }
-
 
 function InstagramIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
   return (
@@ -155,7 +192,6 @@ function InstagramIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>)
   )
 }
 
-
 function MapPinIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
   return (
     <svg
@@ -176,7 +212,6 @@ function MapPinIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
   )
 }
 
-
 function PhoneIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
   return (
     <svg
@@ -195,7 +230,6 @@ function PhoneIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
     </svg>
   )
 }
-
 
 function TwitterIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
   return (

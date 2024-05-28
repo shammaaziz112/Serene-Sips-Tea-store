@@ -25,7 +25,7 @@ export function Matcha() {
   })
 
   return (
-    <div className="mt-[10%] mb-[25%] h-1/2">
+    <div className="mt-[10%] mb-[23%] h-1/2">
       <h2 className=" mt-5text-3xl font-bold text-center text-[#313237] mb-6 md:mb-8 lg:mb-10">
         Our Matcha Collection
       </h2>
