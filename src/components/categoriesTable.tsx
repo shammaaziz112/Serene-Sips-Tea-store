@@ -27,14 +27,15 @@ export function CategoriesTable() {
           <TableRow>
             <TableHead className="text-left">Name</TableHead>
             <TableHead className="text-left">Description</TableHead>
+            
           </TableRow>
         </TableHeader>
         <TableBody>
           {categories?.map((category) => (
-            <TableRow key={category.id}>
-              <TableCell className="text-left">{category.name}</TableCell>
+            <TableRow className="text-left" key={category.id}>
+              <TableCell className="font-medium">{category.name}</TableCell>
               <TableCell className="text-left">{category.description}</TableCell>
-              <TableCell className="flex justify-around">
+              <TableCell className="flex justify-around text-right">
                 <EditCategory category={category} />
                 <DeleteCategory category={category} />
               </TableCell>

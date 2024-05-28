@@ -71,7 +71,7 @@ const router = createBrowserRouter([
     element: (
       <PrivateRoute>
         <>
-        <NavBar />
+          <NavBar />
           <Dashboard />
           <Footer />
         </>
