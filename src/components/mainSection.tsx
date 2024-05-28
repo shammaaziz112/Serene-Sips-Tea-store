@@ -9,17 +9,20 @@ export function MainSection() {
             <div className="inline-block rounded-lg bg-gray-100 px-3 py-1 text-sm dark:bg-gray-800">
               Organic & Quality
             </div>
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Exceptional Tea, Naturally</h2>
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+              Exceptional Tea, Naturally
+            </h2>
             <p className="max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
-              Our tea house sources the finest organic and high-quality tea leaves from the most renowned tea gardens
-              around the world. We are committed to providing our customers with an exceptional tea experience.
+              Our tea house sources the finest organic and high-quality tea leaves from the most
+              renowned tea gardens around the world. We are committed to providing our customers
+              with an exceptional tea experience.
             </p>
           </div>
           <img
             alt="Tea House"
             className="mx-auto aspect-video overflow-hidden rounded-xl object-cover sm:w-full"
             height={450}
-            src="../../public/images/header-image.jpg"
+            src="images/header-image.jpg"
             width={650}
           />
         </div>
@@ -65,7 +68,6 @@ function DropletIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
   )
 }
 
-
 function LeafIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
   return (
     <svg
@@ -85,7 +87,6 @@ function LeafIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
     </svg>
   )
 }
-
 
 function MouseIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
   return (
