@@ -31,7 +31,7 @@ export function NavBar() {
     <header className="flex items-center justify-between h-16 px-4 md:px-6 bg-white dark:bg-gray-950 shadow fixed w-full top-0 z-20 ">
       {/* fixed w-full */}
       <Link className="flex items-center gap-2 text-lg font-semibold" to="/">
-        <img src="public/images/Logo2.png" alt="img" className="w-10 h-10" />
+        <img src="images/Logo2.png" alt="img" className="w-10 h-10" />
         <span>Serene Sips</span>
       </Link>
       <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
