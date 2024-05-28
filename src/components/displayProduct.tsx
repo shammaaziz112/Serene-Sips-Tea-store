@@ -23,56 +23,6 @@ export function DisplayProduct() {
     queryKey: ["products"],
     queryFn: ProductService.getAll
   })
-  // return (
-  //   <div className="bg-[#fceadc]">
-  //     <div className="rotate-180"
-  //         style={{
-  //           width: "100%",
-  //           backgroundImage: 'url("../src/images/waves-white.png")',
-  //           height: "65px",
-  //           backgroundSize: "cover",
-  //           zIndex: "1",
-  //         }}
-  //       ></div>
-  //     <div>
-  //       <h1 className="text-2xl uppercase ">Products</h1>
-  //       <section className="flex flex-col md:flex-row gap-4  w-[100%] mt-14 justify-center flex-wrap">
-  //         {products?.length === 0 && <p>No product found, try searching with other name</p>}
-  //         {products?.map((product) => (
-  //           <Card key={product.id} className="w-[300px]">
-  //             <Link to={`/products/${product.id}`}>
-  //               <CardHeader className="p-0">
-  //                 <img src={product.image} alt={product.name} className="h-50 rounded-md" />
-  //                 <CardTitle>{product.name}</CardTitle>
-  //                 <CardDescription>{product.price}SAR</CardDescription>
-  //               </CardHeader>
-  //             </Link>
-  //             <CardContent></CardContent>
-  //             <CardFooter>
-  //             <Button
-  //                   className="w-full"
-  //                   disabled={!inStock}
-  //                   onClick={() => handleAddToCart(product)}
-  //                 >
-  //                   {inStock ? "Add to cart" : "Out of stock"}
-  //                 </Button>
-  //             </CardFooter>
-  //           </Card>
-  //         ))}
-  //         <div className=""
-  //   style={{
-  //     width: "100%",
-  //     backgroundImage: 'url("../src/images/waves-white.png")',
-  //     height: "65px",
-  //     backgroundSize: "cover",
-  //     zIndex: "1",
-  //   }}
-  // ></div>
-  //       </section>
-  //       {error && <p className="text-red-500">{error.message}</p>}
-  //     </div>
-  //   </div>
-  // )
   return (
     <>
       <h2 className="text-2xl uppercase mb-10">Products</h2>
