@@ -9,52 +9,48 @@ import { GlobalContext } from "../App"
 import api from "../api"
 
 export function Login() {
-  const navigate = useNavigate()
-  const context = useContext(GlobalContext)
-  if (!context) throw Error("Context is missing")
-  const { handleStoreUser } = context
+  const provider = useContext(GlobalContext)
+  if (!provider) throw Error("Context is missing")
+  const { handleStoreUser } = provider
 
+  const navigate = useNavigate()
   const [user, setUser] = useState({
     email: "",
     password: ""
   })
-
   const handleLogin = async () => {
     try {
-      const res = await api.post(`/users/login`, user)
+      const res = await api.post("/users/login", user)
       return res.data
     } catch (error) {
       console.error(error)
       return Promise.reject(new Error("Something went wrong"))
     }
   }
-
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const { value, name } = e.target
+    const { name, value } = e.target
     setUser({
       ...user,
       [name]: value
     })
   }
-
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
-
     const token = await handleLogin()
     if (token) {
       const decodedToken = jwt(token)
       const user = reshapeUser(decodedToken)
       localStorage.setItem("token", token)
       localStorage.setItem("user", JSON.stringify(user))
-
       handleStoreUser(user)
       navigate("/")
     }
   }
   return (
-    <div>
+    <div className="my-[10%] h-1/2">
       <h3>LOGIN</h3>
       <form action="POST" className="w-full md:w-1/3 mx-auto" onSubmit={handleSubmit}>
+        
         <Input
           name="email"
           className="mt-4"

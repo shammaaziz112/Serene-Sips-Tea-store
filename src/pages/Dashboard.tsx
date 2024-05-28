@@ -7,7 +7,7 @@ import { UserTable } from "@/components/userTable"
 
 export function Dashboard() {
   return (
-    <div>
+    <div >
       <div>
         <AddCategory/>
       </div>

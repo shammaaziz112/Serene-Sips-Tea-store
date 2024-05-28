@@ -42,7 +42,7 @@ export function Signup() {
   }
 
   return (
-    <div>
+    <div className="my-[10%] h-1/2">
       <h3>SIGNUP</h3>
       <form action="POST" onSubmit={handleSubmit} className="w-full md:w-1/3 mx-auto">
         <Input

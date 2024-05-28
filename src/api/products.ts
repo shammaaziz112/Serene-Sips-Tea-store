@@ -37,6 +37,15 @@ export default {
       console.error(error)
       return Promise.reject(new Error("Something went wrong"))
     }
+  }, 
+  getProductsById: async (id: string | undefined) => {
+    try {
+      const res = await api.get(`/products/section/${id}`)
+      return res.data
+    } catch (error) {
+      console.error(error)
+      return Promise.reject(new Error("Something went wrong"))
+    }
   }
 
 }

@@ -1,7 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 
 import { Home } from "./pages/Home"
-import { NavMenu } from "./components/navMenu"
 import "./App.css"
 import { Dashboard } from "./pages/Dashboard"
 import { createContext, useEffect, useState } from "react"
@@ -9,15 +8,29 @@ import { DecodedUser, Product } from "./types"
 import { ProductDetails } from "./pages/productDetails"
 import { Login } from "./pages/login"
 import { Signup } from "./pages/signup"
-import { PrivateRoute } from "./components/privateRoute"
+import { PrivateRoute } from "./components/routes/privateRoute"
+import { NavBar } from "./components/navBar"
+import Footer from "./components/footer"
+import { Tea } from "./pages/Tea"
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: (
       <>
-        <NavMenu />
+        <NavBar />
         <Home />
+        <Footer />
+      </>
+    )
+  },
+  {
+    path: "/Tea",
+    element: (
+      <>
+        <NavBar />
+        <Tea />
+        <Footer />
       </>
     )
   },
@@ -26,8 +39,9 @@ const router = createBrowserRouter([
     element: (
       <PrivateRoute>
         <>
-          <NavMenu />
+        <NavBar />
           <Dashboard />
+          <Footer />
         </>
       </PrivateRoute>
     )
@@ -36,8 +50,9 @@ const router = createBrowserRouter([
     path: "/login",
     element: (
       <>
-        <NavMenu />
+        <NavBar />
         <Login />
+        <Footer />
       </>
     )
   },
@@ -45,8 +60,9 @@ const router = createBrowserRouter([
     path: "/signup",
     element: (
       <>
-        <NavMenu />
+        <NavBar />
         <Signup />
+        <Footer />
       </>
     )
   },
@@ -54,8 +70,9 @@ const router = createBrowserRouter([
     path: "/products/:productId",
     element: (
       <>
-        <NavMenu />
+        <NavBar />
         <ProductDetails />
+        <Footer />
       </>
     )
   }
@@ -150,7 +167,7 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div className="App mt-14">
       <GlobalContext.Provider
         value={{
           state,

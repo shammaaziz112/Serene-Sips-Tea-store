@@ -2,8 +2,8 @@ import { ReactElement } from "react"
 import { Navigate } from "react-router-dom"
 import jwt from "jwt-decode"
 
-import { ROLE } from "../types"
-import { reshapeUser } from "../lib/utils"
+import { ROLE } from "../../types"
+import { reshapeUser } from "../../lib/utils"
 
 export function PrivateRoute({ children }: { children: ReactElement }) {
   const token = localStorage.getItem("token") || ""

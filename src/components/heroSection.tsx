@@ -3,11 +3,11 @@ export function HeroSection(){
         /* with video*/
         <div>
       <section
-        className="w-full -mt-14 relative"
+        className="w-full relative"
         style={{
-          width: "102%",
+          width: "100%",
           position: "relative",
-          paddingBottom: "30%" /* This sets the height to half the width */,
+          paddingBottom: "35%" /* This sets the height to half the width */,
           overflow: "hidden"
         }}
       >
@@ -29,14 +29,14 @@ export function HeroSection(){
         </video>
         <div
           style={{
-            width: "110%",
+            width: "100%",
             backgroundImage: 'url("../src/images/waves-white.png")',
             height: "65px",
             backgroundSize: "cover",
             position: "absolute",
             zIndex: "1",
             bottom: "0%",
-            left: "-5%"
+            left: "-0%"
           }}
         ></div>
       </section>
