@@ -19,7 +19,7 @@ export function MainSection() {
             alt="Tea House"
             className="mx-auto aspect-video overflow-hidden rounded-xl object-cover sm:w-full"
             height={450}
-            src="../src/images/header-image.jpg"
+            src="../../public/images/header-image.jpg"
             width={650}
           />
         </div>
