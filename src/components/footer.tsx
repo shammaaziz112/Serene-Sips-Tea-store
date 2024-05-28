@@ -8,7 +8,7 @@ export default function Footer() {
         className=""
         style={{
           width: "100%",
-          backgroundImage: 'url("public/images/waves-Pearl.png")',
+          backgroundImage: 'url("images/waves-Pearl.png")',
           height: "65px",
           backgroundSize: "cover",
           zIndex: "1"

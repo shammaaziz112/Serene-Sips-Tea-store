@@ -30,7 +30,7 @@ export function HeroSection(){
         <div
           style={{
             width: "100%",
-            backgroundImage: 'url("public/images/waves-white.png")',
+            backgroundImage: 'url("images/waves-white.png")',
             height: "65px",
             backgroundSize: "cover",
             position: "absolute",
