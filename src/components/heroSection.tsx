@@ -1,7 +1,7 @@
-export function HeroSection(){
-    return(
-        /* with video*/
-        <div>
+export function HeroSection() {
+  return (
+    /* with video*/
+    <div>
       <section
         className="w-full relative"
         style={{
@@ -25,7 +25,7 @@ export function HeroSection(){
             objectFit: "cover"
           }}
         >
-          <source src="public/video/teaCommercial.mp4" type="video/mp4" />
+          <source src="video/teaCommercial.mp4" type="video/mp4" />
         </video>
         <div
           style={{
@@ -40,11 +40,11 @@ export function HeroSection(){
           }}
         ></div>
       </section>
-        </div>
-        
-    )
-    /* with image*/
-                {/* <section
+    </div>
+  )
+  /* with image*/
+  {
+    /* <section
         className="w-full -mt-14 bg-cover bg-center relative "
         style={{
           backgroundImage: 'url("../src/images/header-image.jpg")',
@@ -62,5 +62,6 @@ export function HeroSection(){
             bottom: "0"
           }}
         ></div>
-      </section> */} 
+      </section> */
+  }
 }
