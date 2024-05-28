@@ -1,5 +1,4 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
-
 import { Home } from "./pages/Home"
 import "./App.css"
 import { Dashboard } from "./pages/Dashboard"
@@ -12,6 +11,8 @@ import { PrivateRoute } from "./components/routes/privateRoute"
 import { NavBar } from "./components/navBar"
 import Footer from "./components/footer"
 import { Tea } from "./pages/Tea"
+import { Matcha } from "./pages/Matcha"
+import { Accessories } from "./pages/Accessories"
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,26 @@ const router = createBrowserRouter([
       <>
         <NavBar />
         <Tea />
+        <Footer />
+      </>
+    )
+  },
+  {
+    path: "/Matcha",
+    element: (
+      <>
+        <NavBar />
+        <Matcha />
+        <Footer />
+      </>
+    )
+  },
+  {
+    path: "/Accessories",
+    element: (
+      <>
+        <NavBar />
+        <Accessories />
         <Footer />
       </>
     )

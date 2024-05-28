@@ -15,7 +15,7 @@ import { Product } from "@/types"
 import ProductService from "../api/products"
 
 
-export function Tea() {
+export function Accessories() {
     const provider = useContext(GlobalContext)
     if (!provider) throw Error("Context is missing")
     const { state, handleAddToCart } = provider
@@ -28,7 +28,7 @@ export function Tea() {
     return (
         <div className="mt-[10%] mb-[25%] h-1/2">
             <h2 className=" mt-5text-3xl font-bold text-center text-[#313237] mb-6 md:mb-8 lg:mb-10">
-            Our Tea Collection
+            Our Accessories Collection
           </h2>
           <section className="flex flex-col flex-wrap mx-20 md:flex-row gap-4 justify-center max-w-screen-md md:max-w-screen-2xl">
             {data?.map((product) => {

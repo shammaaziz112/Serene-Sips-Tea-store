@@ -1,5 +1,3 @@
-import { SheetTrigger, SheetContent, Sheet } from "@/components/ui/sheet"
-import { LeafIcon, MenuIcon, ShoppingCartIcon } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import {
   DropdownMenuTrigger,
@@ -25,7 +23,7 @@ export function NavBar() {
     localStorage.removeItem("token")
     localStorage.removeItem("user")
     handleRemoveUser()
-  }//bg-[#fceadc]
+  }
 
   return (
     <header className="flex items-center justify-between h-16 px-4 md:px-6 bg-white dark:bg-gray-950 shadow fixed w-full top-0 z-20 ">
@@ -37,22 +35,26 @@ export function NavBar() {
       <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
         <Link
           className="text-gray-700 hover:text-[#c5772f] dark:text-gray-400 dark:hover:text-gray-50 transition-colors"
-          to="/">
+          to="/"
+        >
           Home
         </Link>
         <Link
           className="text-gray-700 hover:text-[#c5772f] dark:text-gray-400 dark:hover:text-gray-50 transition-colors"
-          to="/Tea">
+          to="/Tea"
+        >
           Tea
         </Link>
         <Link
           className="text-gray-700 hover:text-[#c5772f] dark:text-gray-400 dark:hover:text-gray-50 transition-colors"
-          to="/">
+          to="/Matcha"
+        >
           Matcha
         </Link>
         <Link
           className="text-gray-700 hover:text-[#c5772f] dark:text-gray-400 dark:hover:text-gray-50 transition-colors"
-          to="/">
+          to="/Accessories"
+        >
           Accessories
         </Link>
         {!state.user && (
@@ -74,7 +76,7 @@ export function NavBar() {
 
         <Search />
         <Cart />
-{/* https://img.freepik.com/premium-vector/avatar-profile-vector-illustrations-website-social-networks-user-profile-icon_495897-224.jpg */}
+        {/* https://img.freepik.com/premium-vector/avatar-profile-vector-illustrations-website-social-networks-user-profile-icon_495897-224.jpg */}
         {state.user && (
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
