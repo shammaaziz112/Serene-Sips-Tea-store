@@ -47,7 +47,7 @@ export function Matcha() {
                     <img
                       alt={product.name}
                       src={product.image}
-                      className="w-[300px] h-[300px]  rounded-t-lg"
+                      className="w-[340px] h-[300px]  rounded-t-lg"
                     />
                     <CardTitle>{product.name}</CardTitle>
                   </CardHeader>

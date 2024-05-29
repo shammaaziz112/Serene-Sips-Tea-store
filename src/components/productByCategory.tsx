@@ -37,7 +37,7 @@ export function ProductByCategory({ categoryId }: { categoryId: string }) {
                     <img
                       alt={product.name}
                       src={product.image}
-                      className="w-[300px] h-[300px] rounded-t-lg"
+                      className="w-[340px] h-[300px] rounded-t-lg"
                     />
                     <CardTitle className="text-xl">{product.name}</CardTitle>
                     {/* <CardDescription>{product.description}</CardDescription> */}
