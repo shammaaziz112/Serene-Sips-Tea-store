@@ -43,7 +43,7 @@ export function AddUser() {
   const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault()
     await UserService.createOne(user)
-    queryClient.invalidateQueries({ queryKey: ["Users"] })
+    queryClient.invalidateQueries({ queryKey: ["users"] })
     await handleReset()
   }
   const handleReset = async () => {
