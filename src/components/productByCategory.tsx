@@ -1,13 +1,7 @@
 import { useQuery } from "@tanstack/react-query"
 import { Button } from "../components/ui/button"
 import { Link } from "react-router-dom"
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle
-} from "../components/ui/card"
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "../components/ui/card"
 import { GlobalContext } from "@/App"
 import { useContext } from "react"
 import { Product } from "@/types"
@@ -23,11 +17,11 @@ export function ProductByCategory({ categoryId }: { categoryId: string }) {
     queryFn: () => ProductService.getProductsById(categoryId)
   })
   let displayProduct = []
-if (data?.length >= 4) {
-  displayProduct =  data?.slice(0,5)
-} else {
-  displayProduct = data
-}
+  if (data?.length >= 4) {
+    displayProduct = data?.slice(0, 5)
+  } else {
+    displayProduct = data
+  }
   return (
     <div>
       <section className="flex flex-col md:flex-row gap-4 justify-between w-full mx-auto">
@@ -37,7 +31,7 @@ if (data?.length >= 4) {
 
           return (
             <div key={product.id} className="card">
-              <Card key={product.id} className="w-[320px]">
+              <Card key={product.id} className="w-[320px] h-[490px]">
                 <Link to={`/products/${product.id}`}>
                   <CardHeader className="p-0">
                     <img alt={product.name} src={product.image} className="h-50 rounded-t-lg" />
@@ -45,7 +39,7 @@ if (data?.length >= 4) {
                     {/* <CardDescription>{product.description}</CardDescription> */}
                   </CardHeader>
                 </Link>
-                <CardContent className="mt-2 text-lg">
+                <CardContent className="p-4 mt-2 text-lg">
                   <p>{product.price} SAR</p>
                 </CardContent>
                 <CardFooter>
