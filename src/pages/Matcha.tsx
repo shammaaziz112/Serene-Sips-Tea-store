@@ -18,7 +18,7 @@ export function Matcha() {
   const provider = useContext(GlobalContext)
   if (!provider) throw Error("Context is missing")
   const { state, handleAddToCart } = provider
-  const categoryId = "61808512-01b7-4cd7-8911-26fd80f3cf54"
+  const categoryId = "9304da9b-cac6-4d84-ab4c-656cad89fe7d"
   const { data, error } = useQuery<Product[]>({
     queryKey: ["products", categoryId],
     queryFn: () => ProductService.getProductsById(categoryId)

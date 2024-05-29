@@ -19,7 +19,7 @@ export function Tea() {
     const provider = useContext(GlobalContext)
     if (!provider) throw Error("Context is missing")
     const { state, handleAddToCart } = provider
-   const categoryId = "61808512-01b7-4cd7-8911-26fd80f3cf54"
+   const categoryId = "b3e2bd7a-6769-4962-9654-32133538d782"
     const { data, error } = useQuery<Product[]>({
       queryKey: ["products", categoryId],
       queryFn: () => ProductService.getProductsById(categoryId)
