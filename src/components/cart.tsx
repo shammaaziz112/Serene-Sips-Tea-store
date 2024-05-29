@@ -93,6 +93,8 @@ export function Cart() {
               const totalForEach = products.reduce((acc, curr) => {
                 return acc + curr.price
               }, 0)
+              // const products2 = state.cart.filter((p) => p.id === product.id)
+              const inStock = product.quantity > products.length
               return (
                 <div key={product.id} className="grid grid-cols-[64px_1fr_auto] items-center gap-4">
                   <img
@@ -117,8 +119,13 @@ export function Cart() {
                         -
                       </Button>
                       <span>{products.length}</span>
-                      <Button onClick={() => handleAddToCart(product)} size="sm" variant="outline">
-                        +
+                      <Button
+                        onClick={() => handleAddToCart(product)}
+                        disabled={!inStock}
+                        size="sm"
+                        variant="outline"
+                      >
+                        {inStock ? "+" : "+"}
                       </Button>
                     </div>
                   </div>
@@ -140,10 +147,11 @@ export function Cart() {
                 <span className="text-2xl font-semibold">${total.toFixed(2)}</span>
               </div>
               <div className="mt-4 flex gap-2">
-              <SheetClose asChild>
-                <Button className="flex-1 w-40" variant="outline">
-                  Continue Shopping
-                </Button></SheetClose>
+                <SheetClose asChild>
+                  <Button className="flex-1 w-40" variant="outline">
+                    Continue Shopping
+                  </Button>
+                </SheetClose>
                 <Button onClick={handleCheckout} className="flex-1 w-40">
                   Checkout
                 </Button>
