@@ -43,7 +43,7 @@ export function ProductDetails() {
   }
 
   return (
-    <div className="bg-gray-100 dark:bg-gray-900 py-12 md:py-16 lg:py-20">
+    <div className=" dark:bg-gray-900 py-12 md:py-16 lg:py-20">
       <div className="container mx-auto px-4 md:px-6 lg:px-8 mt-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
           <div>
@@ -61,10 +61,10 @@ export function ProductDetails() {
           </div>
           <div className="flex flex-col justify-center text-left">
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 ">{product.name}</h1>
-            <p className="text-gray-500 dark:text-gray-400 text-lg mb-8">{product.description}</p>
+            <span className="text-4xl font-bold mr-4">{product.price}SAR</span>
 
             <div className="flex items-center mb-8">
-              <span className="text-4xl font-bold mr-4">{product.price}SAR</span>
+              <p className="text-gray-500 dark:text-gray-400 text-lg mb-8">{product.description}</p>
               <Button size="lg" onClick={() => handleAddToCart(product)}>
                 Add to Cart
               </Button>
