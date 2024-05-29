@@ -41,10 +41,14 @@ export function Tea() {
 
           return (
             <div key={product.id} className="card">
-              <Card key={product.id} className="w-[250px]">
+              <Card key={product.id} className="w-[320px] h-[500px] flex flex-col justify-between">
                 <Link to={`/products/${product.id}`}>
                   <CardHeader className="p-0">
-                    <img alt={product.name} src={product.image} className="h-50 rounded-t-lg" />
+                    <img
+                      alt={product.name}
+                      src={product.image}
+                      className="w-[300px] h-[300px] rounded-t-lg"
+                    />
                     <CardTitle>{product.name}</CardTitle>
                   </CardHeader>
                 </Link>
