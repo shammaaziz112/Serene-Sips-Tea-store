@@ -4,7 +4,6 @@ import { Link } from "react-router-dom"
 import {
   Card,
   CardContent,
-  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle
@@ -42,7 +41,6 @@ export function Tea() {
                     <CardHeader className="p-0">
                       <img alt={product.name} src={product.image} className="h-50 rounded-t-lg" />
                       <CardTitle>{product.name}</CardTitle>
-                      <CardDescription>{product.description}</CardDescription>
                     </CardHeader>
                     </Link>
                     <CardContent>
