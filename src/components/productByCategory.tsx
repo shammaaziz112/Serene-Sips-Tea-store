@@ -31,15 +31,15 @@ export function ProductByCategory({ categoryId }: { categoryId: string }) {
 
           return (
             <div key={product.id} className="card">
-              <Card key={product.id} className="w-[320px] h-[490px]">
+              <Card key={product.id} className="w-[320px] h-[500px] flex flex-col justify-between">
                 <Link to={`/products/${product.id}`}>
                   <CardHeader className="p-0">
-                    <img alt={product.name} src={product.image} className="h-50 rounded-t-lg" />
+                    <img alt={product.name} src={product.image} className="h-[40vh] rounded-t-lg" />
                     <CardTitle className="text-xl">{product.name}</CardTitle>
                     {/* <CardDescription>{product.description}</CardDescription> */}
                   </CardHeader>
                 </Link>
-                <CardContent className="p-4 mt-2 text-lg">
+                <CardContent className="mt-2 text-lg">
                   <p>{product.price} SAR</p>
                 </CardContent>
                 <CardFooter>

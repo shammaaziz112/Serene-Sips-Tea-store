@@ -34,7 +34,7 @@ export function Tea() {
           }}
         ></div>
       </div>
-      <section className="flex flex-col flex-wrap mx-20 md:flex-row gap-4 justify-center w-screen md:w-screen">
+      <section className="flex flex-col flex-wrap mx-20 md:flex-row gap-4 justify-center w-fit">
         {data?.map((product) => {
           const products = state.cart.filter((p) => p.id === product.id)
           const inStock = product.quantity > products.length
