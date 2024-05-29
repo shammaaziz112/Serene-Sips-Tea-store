@@ -34,14 +34,14 @@ export function ProductByCategory({ categoryId }: { categoryId: string }) {
           return (
             <div key={product.id} className="card">
               <Card key={product.id} className="w-[250px]">
-               <Link to={`/products/${product.id}`}>
-                <CardHeader className="p-0">
-                  <img alt={product.name} src={product.image} className="h-50 rounded-t-lg" />
-                  <CardTitle>{product.name}</CardTitle>
-                  {/* <CardDescription>{product.description}</CardDescription> */}
-                </CardHeader>
+                <Link to={`/products/${product.id}`}>
+                  <CardHeader className="p-0">
+                    <img alt={product.name} src={product.image} className="h-50 rounded-t-lg" />
+                    <CardTitle>{product.name}</CardTitle>
+                    {/* <CardDescription>{product.description}</CardDescription> */}
+                  </CardHeader>
                 </Link>
-                <CardContent>
+                <CardContent className="mt-2 text-lg">
                   <p>{product.price} SAR</p>
                 </CardContent>
                 <CardFooter>

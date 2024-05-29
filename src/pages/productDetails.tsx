@@ -60,7 +60,7 @@ export function ProductDetails() {
             />
           </div>
           <div className="flex flex-col justify-center text-left">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 ">{product.name}</h1>
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">{product.name}</h1>
             <span className="text-4xl font-bold mb-8">{product.price} SAR</span>
 
             <div className="flex flex-col items-center mb-8">
