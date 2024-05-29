@@ -68,8 +68,8 @@ export function AddUser() {
         </DialogTrigger>
         <DialogContent className="sm:max-w-[425px]">
           <DialogHeader>
-            <DialogTitle>Add Category</DialogTitle>
-            <DialogDescription>Add new category. Click save when you are done.</DialogDescription>
+            <DialogTitle>Add User</DialogTitle>
+            <DialogDescription>Add new User. Click save when you are done.</DialogDescription>
           </DialogHeader>
           <div className="grid gap-4 py-4">
             <div className="grid grid-cols-4 items-center gap-4">

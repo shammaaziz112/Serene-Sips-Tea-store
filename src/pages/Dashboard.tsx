@@ -59,28 +59,7 @@ export function Dashboard() {
     return product
   })
 
-  //   return (
-  //     <div >
-  //       <div>
-  //         <AddCategory/>
-  //       </div>
-  //       <div>
-  //         <h1 className="scroll-m-20 text-4xl font-semibold tracking-tight mt-10">Categories</h1>
-  //         <CategoriesTable />
-  //       </div>
-  //       <AddProduct />
-  //       <div>
-  //         <h1 className="scroll-m-20 text-4xl font-semibold tracking-tight mt-10">Products</h1>
-  //         <ProductTable />
-  //       </div>
-  //         <AddUser/>
-  //       <div>
-  //       <h1 className="scroll-m-20 text-4xl font-semibold tracking-tight mt-10">User</h1>
-  //         <UserTable />
-  //       </div>
-  //     </div>
-  //   )
-  // }
+
   return (
     <div className="grid min-h-screen w-full ">
       <div className="flex flex-col">

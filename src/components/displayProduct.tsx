@@ -9,6 +9,7 @@ import {
   CardTitle
 } from "../components/ui/card"
 import { Product } from "../types"
+import { Link } from "react-router-dom"
 import { GlobalContext } from "@/App"
 import { useContext } from "react"
 import ProductService from "../api/products"
@@ -34,11 +35,13 @@ export function DisplayProduct() {
           return (
             <div key={product.id} className="card">
               <Card key={product.id} className="w-[300px]">
-                <CardHeader className="p-0">
-                  <img alt={product.name} src={product.image} className="h-50 rounded-md" />
-                  <CardTitle>{product.name}</CardTitle>
-                  <CardDescription>{product.description}</CardDescription>
-                </CardHeader>
+                <Link to={`/products/${product.id}`}>
+                  <CardHeader className="p-0">
+                    <img alt={product.name} src={product.image} className="h-50 rounded-md" />
+                    <CardTitle>{product.name}</CardTitle>
+                    <CardDescription>{product.description}</CardDescription>
+                  </CardHeader>
+                </Link>
                 <CardContent>
                   <p>{product.price} $</p>
                 </CardContent>

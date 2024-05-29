@@ -78,12 +78,12 @@ export function AddProduct() {
         </DialogTrigger>
         <DialogContent className="sm:max-w-[425px]">
           <DialogHeader>
-            <DialogTitle>Add Category</DialogTitle>
-            <DialogDescription>Add new category. Click save when you are done.</DialogDescription>
+            <DialogTitle>Add Product</DialogTitle>
+            <DialogDescription>Add new Product. Click save when you are done.</DialogDescription>
           </DialogHeader>
           <div className="grid gap-4 py-4">
             <div className="grid grid-cols-4 items-center gap-4">
-              <Label className="text-right">Category</Label>
+              <Label className="text-right">Product</Label>
               <Select
                 defaultValue="3fa85f64-5717-4562-b3fc-2c963f66af16"
                 onValueChange={handleCategory}

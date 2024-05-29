@@ -26,7 +26,7 @@ export function Home() {
             Our Tea Collection
           </h2>
           {/* <div className="w-full h-0.5 bg-[#313237] dark:bg-gray-700 mb-8 md:mb-10 lg:mb-12 " /> */}
-          <ProductByCategory categoryId="61808512-01b7-4cd7-8911-26fd80f3cf54" />
+          <ProductByCategory categoryId="b3e2bd7a-6769-4962-9654-32133538d782" />
         </div>
 
         <div
@@ -48,7 +48,7 @@ export function Home() {
             Our Matcha Collection
           </h2>
           {/* <div className="w-full h-0.5 bg-[#627476] dark:bg-gray-700 mb-8 md:mb-10 lg:mb-12 " /> */}
-          <ProductByCategory categoryId="4d3307f6-956c-400f-b0ea-66ac56b2d0d1" />
+          <ProductByCategory categoryId="9304da9b-cac6-4d84-ab4c-656cad89fe7d" />
         </div>
       </div>
 
@@ -70,7 +70,7 @@ export function Home() {
             Our Accessories Collection
           </h2>
           {/* <div className="w-full h-0.5 bg-[#faf4e8] dark:bg-gray-700 mb-8 md:mb-10 lg:mb-12 " /> */}
-          <ProductByCategory categoryId="61808512-01b7-4cd7-8911-26fd80f3cf54" />
+          <ProductByCategory categoryId="d5415f10-680e-475a-b929-e399a9db488a" />
         </div>
 
         <div
