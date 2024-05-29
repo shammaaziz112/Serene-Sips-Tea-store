@@ -1,23 +1,8 @@
 import { AddCategory } from "@/components/addCategory"
 import { AddProduct } from "@/components/addProduct"
 import { AddUser } from "@/components/addUser"
-import { CategoriesTable } from "@/components/categoriesTable"
-import { ProductTable } from "@/components/productTable"
-import { UserTable } from "@/components/userTable"
-import { Link } from "react-router-dom"
-import { SVGProps, useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { CardTitle, CardDescription, CardHeader, CardContent, Card } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import {
-  DropdownMenuTrigger,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuItem,
-  DropdownMenuContent,
-  DropdownMenu
-} from "@/components/ui/dropdown-menu"
+import { SVGProps } from "react"
+import { CardTitle, CardHeader, CardContent, Card } from "@/components/ui/card"
 import {
   TableHead,
   TableRow,
@@ -37,6 +22,7 @@ import { EditProduct } from "@/components/editProduct"
 import { DeleteProduct } from "@/components/deleteProduct"
 import { EditUser } from "@/components/editUser"
 import { DeleteUser } from "@/components/deleteUser"
+
 export function Dashboard() {
   const { data: categories, error: categoriesError } = useQuery<Category[]>({
     queryKey: ["categories"],

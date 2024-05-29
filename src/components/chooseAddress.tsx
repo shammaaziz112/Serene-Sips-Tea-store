@@ -15,9 +15,9 @@ export function ChooseAddres() {
     queryFn: addressService.getAll
   })
   return (
-    <div>
-      <Select>
-        <SelectTrigger className="mt-5" name="categoryId">
+    <div className="grow mr-3">
+      <Select >
+        <SelectTrigger className="col-span-3" name="categoryId">
           <SelectValue placeholder="Addres" />
         </SelectTrigger>
         <SelectContent>

@@ -128,8 +128,10 @@ export function Cart() {
             })}
           </div>
 
-          <ChooseAddres />
-          <AddAddress />
+          <div className="flex flex-row justify-between items-end mb-4">
+            <ChooseAddres />
+            <AddAddress />
+          </div>
 
           <SheetFooter className="border-t px-4 py-6">
             <div className="flex flex-col">
