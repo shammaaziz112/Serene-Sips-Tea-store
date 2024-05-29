@@ -24,7 +24,7 @@ export function DisplayProduct() {
     queryFn: ProductService.getAll
   })
   return (
-    <>
+    <div className="mt-[10%] mb-[20%]">
       <h2 className="text-2xl uppercase mb-10">Products</h2>
       <section className="flex flex-col md:flex-row gap-4  w-[100%] mt-14 justify-center flex-wrap">
         {data?.map((product) => {
@@ -60,6 +60,6 @@ export function DisplayProduct() {
         })}
       </section>
       {error && <p className="text-red-500">{error.message}</p>}
-    </>
+    </div>
   )
 }
