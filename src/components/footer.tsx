@@ -80,25 +80,25 @@ export default function Footer() {
               </Link>
               <Link
                 className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
-                to="#"
+                to="/Shop"
               >
                 Shop
               </Link>
               <Link
                 className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
-                to="#"
+                to="/Contact"
               >
                 Contact
               </Link>
               <Link
                 className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
-                to="#"
+                to="/FAQ"
               >
                 FAQ
               </Link>
               <Link
                 className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
-                to="#"
+                to="/Policy"
               >
                 Privacy Policy
               </Link>

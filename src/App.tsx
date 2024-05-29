@@ -14,6 +14,10 @@ import { Tea } from "./pages/Tea"
 import { Matcha } from "./pages/Matcha"
 import { Accessories } from "./pages/Accessories"
 import About from "./pages/About"
+import { Shop } from "./pages/Shop"
+import Contact from "./pages/Contact"
+import FAQ from "./pages/FAQ"
+import Policy from "./pages/Policy"
 
 const router = createBrowserRouter([
   {
@@ -22,6 +26,16 @@ const router = createBrowserRouter([
       <>
         <NavBar />
         <Home />
+        <Footer />
+      </>
+    )
+  },
+  {
+    path: "/Shop",
+    element: (
+      <>
+        <NavBar />
+        <Shop />
         <Footer />
       </>
     )
@@ -67,20 +81,45 @@ const router = createBrowserRouter([
     )
   },
   {
-    path: "/dashboard",
+    path: "/Contact",
     element: (
-      // <PrivateRoute>
-      //   <>
-      //     <NavBar />
-      //     <Dashboard />
-      //     <Footer />
-      //   </>
-      // </PrivateRoute>
       <>
         <NavBar />
-        <Dashboard />
+        <Contact />
         <Footer />
       </>
+    )
+  },
+  {
+    path: "/FAQ",
+    element: (
+      <>
+        <NavBar />
+        <FAQ />
+        <Footer />
+      </>
+    )
+  },
+  {
+    path: "/Policy",
+    element: (
+      <>
+        <NavBar />
+        <Policy />
+        <Footer />
+      </>
+    )
+  },
+  {
+    path: "/dashboard",
+    element: (
+      <PrivateRoute>
+        <>
+          <NavBar />
+          <Dashboard />
+          <Footer />
+        </>
+      </PrivateRoute>
     )
   },
   {
