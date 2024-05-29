@@ -22,11 +22,16 @@ export function ProductByCategory({ categoryId }: { categoryId: string }) {
     queryKey: ["products", categoryId],
     queryFn: () => ProductService.getProductsById(categoryId)
   })
-
+  let displayProduct = []
+if (data?.length >= 4) {
+  displayProduct =  data?.slice(0,4)
+} else {
+  displayProduct = data
+}
   return (
     <div>
       <section className="flex flex-col md:flex-row gap-4 justify-between max-w-screen-md md:max-w-screen-2xl mx-auto overflow-scroll">
-        {data?.map((product) => {
+        {displayProduct?.map((product) => {
           const products = state.cart.filter((p) => p.id === product.id)
           const inStock = product.quantity > products.length
 
