@@ -61,9 +61,9 @@ export function ProductDetails() {
           </div>
           <div className="flex flex-col justify-center text-left">
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 ">{product.name}</h1>
-            <span className="text-4xl font-bold mr-4">{product.price}SAR</span>
+            <span className="text-4xl font-bold mb-8">{product.price} SAR</span>
 
-            <div className="flex items-center mb-8">
+            <div className="flex flex-col items-center mb-8">
               <p className="text-gray-500 dark:text-gray-400 text-lg mb-8">{product.description}</p>
               <Button size="lg" onClick={() => handleAddToCart(product)}>
                 Add to Cart

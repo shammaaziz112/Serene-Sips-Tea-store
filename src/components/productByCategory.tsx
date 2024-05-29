@@ -38,11 +38,11 @@ export function ProductByCategory({ categoryId }: { categoryId: string }) {
                 <CardHeader className="p-0">
                   <img alt={product.name} src={product.image} className="h-50 rounded-t-lg" />
                   <CardTitle>{product.name}</CardTitle>
-                  <CardDescription>{product.description}</CardDescription>
+                  {/* <CardDescription>{product.description}</CardDescription> */}
                 </CardHeader>
                 </Link>
                 <CardContent>
-                  <p>{product.price} $</p>
+                  <p>{product.price} SAR</p>
                 </CardContent>
                 <CardFooter>
                   <Button
