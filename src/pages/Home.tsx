@@ -2,6 +2,7 @@ import { HeroSection } from "@/components/heroSection"
 import { ProductByCategory } from "@/components/productByCategory"
 import { MainSection } from "@/components/mainSection"
 import { SVGProps } from "react"
+import { Link } from "react-router-dom"
 
 export function Home() {
   return (
@@ -23,7 +24,7 @@ export function Home() {
 
         <div className="px-16 md:px-20 py-12 md:py-10">
           <h2 className="text-3xl font-bold text-center text-[#313237] mb-6 md:mb-8 lg:mb-10">
-            Our Tea Collection
+            <Link to={"/Tea"}>Our Tea Collection</Link>
           </h2>
           {/* <div className="w-full h-0.5 bg-[#313237] dark:bg-gray-700 mb-8 md:mb-10 lg:mb-12 " /> */}
           <ProductByCategory categoryId="b3e2bd7a-6769-4962-9654-32133538d782" />
@@ -45,7 +46,7 @@ export function Home() {
       <div className="">
         <div className="px-16 md:px-20 py-12 md:py-10">
           <h2 className="text-3xl font-bold text-center text-[#627476] mb-6 md:mb-8 lg:mb-10">
-            Our Matcha Collection
+            <Link to={"/Matcha"}>Our Matcha Collection</Link>
           </h2>
           {/* <div className="w-full h-0.5 bg-[#627476] dark:bg-gray-700 mb-8 md:mb-10 lg:mb-12 " /> */}
           <ProductByCategory categoryId="9304da9b-cac6-4d84-ab4c-656cad89fe7d" />
@@ -67,7 +68,7 @@ export function Home() {
 
         <div className="px-16 md:px-20 py-12 md:py-10">
           <h2 className="text-3xl font-bold text-center text-[#faf4e8] mb-6 md:mb-8 lg:mb-10">
-            Our Accessories Collection
+            <Link to={"/Accessories"}>Our Accessories Collection</Link>
           </h2>
           {/* <div className="w-full h-0.5 bg-[#faf4e8] dark:bg-gray-700 mb-8 md:mb-10 lg:mb-12 " /> */}
           <ProductByCategory categoryId="d5415f10-680e-475a-b929-e399a9db488a" />

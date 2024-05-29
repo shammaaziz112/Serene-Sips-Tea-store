@@ -23,7 +23,7 @@ export default function Contact() {
               <div>
                 <h3 className="text-lg font-semibold">Visit Us</h3>
                 <p className="text-gray-500 dark:text-gray-400">
-                  123 Tea Street, Teaopolis, CA 12345
+                  123 Tea Street, Riyadh, SA 12345
                 </p>
               </div>
             </div>
@@ -34,9 +34,9 @@ export default function Contact() {
               <div>
                 <h3 className="text-lg font-semibold">Hours</h3>
                 <p className="text-gray-500 dark:text-gray-400">
-                  Monday - Friday: 8am - 6pm
+                  Friday - Saturday: 2pm - 10pm
                   <br />
-                  Saturday - Sunday: 10am - 4pm
+                  Sunday - Thursday: 10am - 9pm
                 </p>
               </div>
             </div>
@@ -47,7 +47,7 @@ export default function Contact() {
               <div>
                 <h3 className="text-lg font-semibold">Call Us</h3>
                 <p className="text-gray-500 dark:text-gray-400">
-                  <a href="#">(555) 555-5555</a>
+                  <a href="#">(055) 554-5784</a>
                 </p>
               </div>
             </div>

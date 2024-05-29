@@ -24,24 +24,24 @@ export function ProductByCategory({ categoryId }: { categoryId: string }) {
   })
   let displayProduct = []
 if (data?.length >= 4) {
-  displayProduct =  data?.slice(0,4)
+  displayProduct =  data?.slice(0,5)
 } else {
   displayProduct = data
 }
   return (
     <div>
-      <section className="flex flex-col md:flex-row gap-4 justify-between max-w-screen-md md:max-w-screen-2xl mx-auto overflow-scroll">
+      <section className="flex flex-col md:flex-row gap-4 justify-between w-full mx-auto">
         {displayProduct?.map((product) => {
           const products = state.cart.filter((p) => p.id === product.id)
           const inStock = product.quantity > products.length
 
           return (
             <div key={product.id} className="card">
-              <Card key={product.id} className="w-[250px]">
+              <Card key={product.id} className="w-[320px]">
                 <Link to={`/products/${product.id}`}>
                   <CardHeader className="p-0">
                     <img alt={product.name} src={product.image} className="h-50 rounded-t-lg" />
-                    <CardTitle>{product.name}</CardTitle>
+                    <CardTitle className="text-xl">{product.name}</CardTitle>
                     {/* <CardDescription>{product.description}</CardDescription> */}
                   </CardHeader>
                 </Link>

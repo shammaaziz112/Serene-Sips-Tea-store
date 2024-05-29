@@ -51,15 +51,15 @@ export default function Footer() {
             <div className="flex flex-col gap-2">
               <div className="flex items-center gap-2">
                 <MapPinIcon className="w-5 h-5 text-primary" />
-                <span>123 Main St, Anytown USA</span>
+                <span>123 Tea Street, Riyadh, SA 12345</span>
               </div>
               <div className="flex items-center gap-2">
                 <PhoneIcon className="w-5 h-5 text-primary" />
-                <span>(123) 456-7890</span>
+                <span>(055) 554-5784</span>
               </div>
               <div className="flex items-center gap-2">
                 <ClockIcon className="w-5 h-5 text-primary" />
-                <span>Mon-Sat: 8am - 6pm</span>
+                <span>Sun-Thu: 10am - 8pm</span>
               </div>
             </div>
           </div>

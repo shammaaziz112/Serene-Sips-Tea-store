@@ -59,41 +59,72 @@ export function Dashboard() {
     return product
   })
 
-
   return (
     <div className="grid min-h-screen w-full ">
       <div className="flex flex-col">
         <main className="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <Card>
+            <Card className="bg-[#cbbaa6]">
               <CardHeader className="flex flex-row items-center justify-between pb-2">
-                <CardTitle className="text-sm font-medium">Total Products</CardTitle>
-                <PackageIcon className="w-4 h-4 text-gray-500 dark:text-gray-400" />
+                <CardTitle className="text-xl font-medium text-neutral-50">
+                  Total Products
+                </CardTitle>
+                <PackageIcon className="w-10 h-10 text-neutral-50 dark:text-gray-400" />
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">{products?.length}</div>
+                <div className="text-2xl font-bold text-neutral-50">{products?.length}</div>
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="bg-[#8a9aa5]">
               <CardHeader className="flex flex-row items-center justify-between pb-2">
-                <CardTitle className="text-sm font-medium">Total Categories</CardTitle>
-                <FolderIcon className="w-4 h-4 text-gray-500 dark:text-gray-400" />
+                <CardTitle className="text-xl font-medium text-neutral-50">
+                  Total Categories
+                </CardTitle>
+                <FolderIcon className="w-10 h-10 text-neutral-50 dark:text-gray-400" />
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">{categories?.length}</div>
+                <div className="text-2xl font-bold text-neutral-50">{categories?.length}</div>
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="bg-[#a05540]">
               <CardHeader className="flex flex-row items-center justify-between pb-2">
-                <CardTitle className="text-sm font-medium">Total Users</CardTitle>
-                <UsersIcon className="w-4 h-4 text-gray-500 dark:text-gray-400" />
+                <CardTitle className="text-xl font-medium text-neutral-50">Total Users</CardTitle>
+                <UsersIcon className="w-10 h-10 text-neutral-50 dark:text-gray-400" />
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">{users?.length}</div>
+                <div className="text-2xl font-bold text-neutral-50">{users?.length}</div>
               </CardContent>
             </Card>
+          </div>
+          <div className="border shadow-sm rounded-lg">
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead className="text-left">Name</TableHead>
+                  <TableHead className="text-left">Email</TableHead>
+                  <TableHead className="text-left">Role</TableHead>
+                  <TableHead className="text-right">
+                    <AddUser />
+                  </TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {users?.map((user) => (
+                  <TableRow className="text-left" key={user.id}>
+                    <TableCell className="font-medium">{user.fullName}</TableCell>
+                    <TableCell className="text-left">{user.email}</TableCell>
+                    <TableCell className="text-left">{user.role}</TableCell>
+                    <TableCell className="flex justify-around text-right">
+                      <EditUser user={user} />
+                      <DeleteUser user={user} />
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+            {usersError && <p className="text-red-500">{usersError.message}</p>}
           </div>
           <div className="grid gap-6">
             <div className="border shadow-sm rounded-lg">
@@ -152,35 +183,6 @@ export function Dashboard() {
                 </TableBody>
               </Table>
               {productsError && <p className="text-red-500">{productsError.message}</p>}
-            </div>
-
-            <div className="border shadow-sm rounded-lg">
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead className="text-left">Name</TableHead>
-                    <TableHead className="text-left">Email</TableHead>
-                    <TableHead className="text-left">Role</TableHead>
-                    <TableHead className="text-right">
-                      <AddUser />
-                    </TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {users?.map((user) => (
-                    <TableRow className="text-left" key={user.id}>
-                      <TableCell className="font-medium">{user.fullName}</TableCell>
-                      <TableCell className="text-left">{user.email}</TableCell>
-                      <TableCell className="text-left">{user.role}</TableCell>
-                      <TableCell className="flex justify-around text-right">
-                        <EditUser user={user} />
-                        <DeleteUser user={user} />
-                      </TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-              {usersError && <p className="text-red-500">{usersError.message}</p>}
             </div>
           </div>
         </main>

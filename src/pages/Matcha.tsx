@@ -24,10 +24,22 @@ export function Matcha() {
   })
 
   return (
-    <div className="mt-[10%] mb-[23%] h-1/2">
-      <h2 className=" mt-5text-3xl font-bold text-center text-[#313237] mb-6 md:mb-8 lg:mb-10">
-        Our Matcha Collection
-      </h2>
+    <div className="mb-[10%] h-1/2">
+    <div className="bg-[#8a9aa5] mb-[2%]">
+      <h2 className=" text-neutral-50 text-3xl font-bold text-center py-[4%] ">
+      Our Match Collection
+                </h2>
+                <div
+                className=""
+                style={{
+      width: "100%",
+      backgroundImage: 'url("images/waves-white.png")',
+      height: "65px",
+      backgroundSize: "cover",
+      zIndex: "1"
+                }}
+              ></div>
+    </div>
       <section className="flex flex-col flex-wrap mx-20 md:flex-row gap-4 justify-center max-w-screen-md md:max-w-screen-2xl">
         {data?.map((product) => {
           const products = state.cart.filter((p) => p.id === product.id)
