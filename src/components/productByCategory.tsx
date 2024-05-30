@@ -18,7 +18,7 @@ export function ProductByCategory({ categoryId }: { categoryId: string }) {
   })
   let displayProduct = []
   if (data?.length >= 4) {
-    displayProduct = data?.slice(0, 5)
+    displayProduct = data?.slice(0, 4)
   } else {
     displayProduct = data
   }
